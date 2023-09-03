@@ -1,5 +1,13 @@
+body {
+    font-family: Poppins, Helvetica, sans-serif;
+}
+
 #logo {
     width: 400px;
+}
+
+hr {
+    border: 2px solid black;
 }
 
 nav a {
@@ -11,10 +19,11 @@ a:hover, a:active {
     background: yellow;
 }
 
-main {
+/* flexbox info is from this website: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+nav, main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .product-offering-gallery {
