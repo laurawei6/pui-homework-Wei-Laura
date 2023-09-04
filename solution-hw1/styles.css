@@ -7,7 +7,7 @@ body {
 /* heading and text styles */
 h1 {
     font-weight: 300;
-    font-size: 36px;
+    font-size: 28px;
 }
 
 h2 {
@@ -69,6 +69,10 @@ article a {
 
 .product-offering img {
     border: 4px solid black;
+}
+
+.product-offering.gallery {
+    margin: 20px 0px;
 }
 
 .product-offering.gallery img {
