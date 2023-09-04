@@ -65,9 +65,8 @@ article a {
 
 /* product in the detail page*/
 .product-offering-description.detail {
-    margin: 0px 20px;
     width: 225px;
-    margin-left: auto; margin-right: auto;
+    margin: 20px auto;
 }
 
 .product-offering.detail img {
