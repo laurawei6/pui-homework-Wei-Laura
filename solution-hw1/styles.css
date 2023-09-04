@@ -4,7 +4,7 @@ body {
     color: black;
 }
 
-/* heading styles */
+/* heading and text styles */
 h1 {
     font-weight: 300;
     font-size: 36px;
@@ -15,6 +15,11 @@ h2 {
     font-size: 20px;
 }
 
+p {
+    margin: 0px;
+}
+
+/* header and logo for all pages */
 header {
     padding: 20px;
 }
@@ -27,6 +32,7 @@ hr {
     border: 2px solid black;
 }
 
+/*nav for all pages */
 nav {
     margin-bottom: 20px;
 }
@@ -85,8 +91,27 @@ article a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin: 10px;
 }
 
-.options {
-    margin: 10px;
+.options, .total-addToCart {
+    width: 225px;
+}
+
+select {
+    margin: 5px 0px;
+}
+
+/* total and add to cart on detail page */
+.total-addToCart {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+button {
+    background-color: yellow;
+    border: 2px solid black;
+    padding: 5px 10px;
+    font-weight: bold;
 }
