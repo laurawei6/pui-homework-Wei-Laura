@@ -25,7 +25,7 @@ nav a {
     font-size: 24px;
 }
 
-a:hover, a:active {
+main a:hover, nav a:hover {
     background: yellow;
     font-weight: bold;
 }
@@ -47,7 +47,9 @@ article a {
     color: black;
 }
 
-.product-offering-gallery {
+/* product card */
+/* product in the gallery*/
+.product-offering {
     display: flex;
     flex-direction: column;
 }
@@ -58,3 +60,7 @@ article a {
     margin-bottom: 2px; 
 }
 
+/* product in the detail page*/
+.product-offering-detail img {
+
+}
