@@ -86,6 +86,11 @@ article a {
     width: 600px; height: 600px;
 }
 
+/* product in cart */
+.product-offering img {
+    width: 200px; height: 200px;
+}
+
 /* customize options on detail page */
 .customize-options, .options {
     display: flex;
@@ -113,5 +118,17 @@ button {
     background-color: yellow;
     border: 2px solid black;
     padding: 5px 10px;
+    font-weight: bold;
+}
+
+/* shopping cart page */
+.product-offering.cart {
+    align-items: center;
+}
+
+.remove {
+    font-size: 12px;
+    text-decoration: underline;
+    margin: 5px 0px;
     font-weight: bold;
 }
