@@ -44,7 +44,6 @@ nav a {
 }
 
 main a:hover, nav a:hover {
-    background: yellow;
     font-weight: bold;
 }
 
@@ -73,6 +72,10 @@ article a {
 
 .product-offering.gallery {
     margin: 20px 0px;
+}
+
+.product-offering.gallery:hover {
+    background-color: yellow;
 }
 
 .product-offering.gallery img {
