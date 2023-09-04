@@ -1,6 +1,18 @@
 body {
     font-family: Poppins, Helvetica, sans-serif;
+    font-weight: 300; font-size: 18px; /* all body text, not headings */
     color: black;
+}
+
+/* heading styles */
+h1 {
+    font-weight: 300;
+    font-size: 36px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 20px;
 }
 
 header {
@@ -37,11 +49,6 @@ nav, main {
     align-items: center;
 }
 
-h1 {
-    font-weight: 300;
-    font-size: 36px;
-}
-
 article a {
     padding: 5px;
     color: black;
@@ -71,4 +78,15 @@ article a {
 
 .product-offering.detail img {
     width: 600px; height: 600px;
+}
+
+/* customize options on detail page */
+.customize-options, .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.options {
+    margin: 10px;
 }
