@@ -26,6 +26,7 @@ p {
 /* header and logo for all pages */
 header {
     padding: 20px;
+    display: flex;
 }
 
 #logo {
@@ -39,6 +40,7 @@ hr {
 /*nav for all pages */
 nav {
     margin-bottom: 20px;
+    display: flex;
 }
 
 nav a {
@@ -49,6 +51,10 @@ nav a {
 
 main a:hover, nav a:hover {
     font-weight: 700;
+}
+
+#navigation {
+    flex-grow: 1;
 }
 
 /* flexbox info is from this website: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
