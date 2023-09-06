@@ -47,11 +47,8 @@ nav a {
     font-size: 24px;
 }
 
-main a:hover, nav a:hover {
+main a:hover, nav a:hover, .highlighted {
     font-weight: 700;
-}
-
-.highlighted {
     background-color: yellow;
 }
 
@@ -78,7 +75,7 @@ nav, main {
     padding: 5px;
 }
 
-.product-offering.gallery:hover, nav a:hover {
+.product-offering.gallery:hover {
     background-color: yellow;
 }
 
