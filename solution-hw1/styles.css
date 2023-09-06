@@ -51,6 +51,10 @@ main a:hover, nav a:hover {
     font-weight: 700;
 }
 
+.highlighted {
+    background-color: yellow;
+}
+
 /* flexbox info is from this website: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 nav, main {
     display: flex;
