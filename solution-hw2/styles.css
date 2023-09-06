@@ -1,0 +1,153 @@
+body {
+    font-family: Poppins, Helvetica, sans-serif;
+    font-weight: 300; font-size: 18px; /* all body text, not headings */
+}
+
+body, a {
+    color: black;
+}
+
+/* heading and text styles */
+h1 {
+    font-weight: 300;
+    font-size: 28px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+/* header and logo for all pages */
+header {
+    padding: 20px;
+}
+
+#logo {
+    width: 400px;
+}
+
+hr {
+    border: 2px solid black;
+}
+
+/*nav for all pages */
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+main a:hover, nav a:hover {
+    font-weight: 700;
+}
+
+/* flexbox info is from this website: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+nav, main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* product card */
+/* product in the gallery*/
+.product-offering {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-offering img {
+    border: 4px solid black;
+}
+
+.product-offering.gallery {
+    margin: 20px 0px;
+    padding: 5px;
+}
+
+.product-offering.gallery:hover, nav a:hover {
+    background-color: yellow;
+}
+
+.product-offering.gallery img {
+    width: 400px; height: 400px;
+    margin-bottom: 2px; 
+}
+
+/* product in the detail page*/
+.product-offering-description.detail {
+    width: 225px;
+    margin: 20px auto;
+}
+
+.product-offering.detail img {
+    width: 600px; height: 600px;
+}
+
+/* product in cart */
+.product-offering img {
+    width: 200px; height: 200px;
+}
+
+/* customize options on detail page */
+.customize-options, .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.options, .total-addToCart {
+    width: 225px;
+}
+
+select {
+    margin: 5px 0px;
+}
+
+/* total and add to cart on detail page */
+.total-addToCart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0px;
+}
+
+button {
+    background-color: yellow;
+    border: 2px solid black;
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* shopping cart page */
+.product-offering.cart {
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.remove {
+    font-size: 12px;
+    text-decoration: underline;
+    margin: 5px 0px;
+    font-weight: bold;
+}
+
+.product-offering-price.cart, p.total.cart {
+    margin: 15px 0px;
+    font-size: 20px;
+}
+
+#cart-line {
+    width: 750px;
+}
