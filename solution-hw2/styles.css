@@ -77,6 +77,11 @@ main {
     align-items: center;
 }
 
+main.cart {
+    align-items: end;
+    padding: 0px 80px;
+}
+
 /* product card */
 /* product in the gallery*/
 .product-offering-rows {
@@ -150,7 +155,6 @@ select {
 /* total and add to cart on detail page */
 .total-addToCart {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: 50px 20px;
 }
@@ -164,8 +168,20 @@ button {
 }
 
 /* shopping cart page */
-.product-offering.cart {
+.product-choices-total {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 700px;
+}
+
+.product-choices {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-offering.cart {
     margin: 20px 0px;
 }
 
