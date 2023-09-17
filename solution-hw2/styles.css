@@ -24,6 +24,10 @@ p {
     margin: 0px;
 }
 
+p.total {
+    font-weight: bold;
+}
+
 /* header and logo for all pages */
 .header {
     padding: 20px;
@@ -103,6 +107,16 @@ main {
 }
 
 /* product in the detail page*/
+.detail-page {
+    display: flex;
+    gap: 50px;
+}
+
+.product-options {
+
+    flex-direction: column;
+}
+
 .product-offering-description.detail {
     width: 225px;
     margin: 20px auto;
@@ -138,7 +152,7 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 50px 0px;
+    margin: 50px 20px;
 }
 
 button {
