@@ -11,6 +11,7 @@ body, a {
 h1 {
     font-weight: 300;
     font-size: 28px;
+    margin: 100px 30px; 
 }
 
 h2 {
@@ -24,9 +25,14 @@ p {
 }
 
 /* header and logo for all pages */
-header {
+.header {
     padding: 20px;
     display: flex;
+    flex-direction: row;
+}
+
+.navigation-header {
+    flex-grow: 2;
 }
 
 #logo {
@@ -41,7 +47,6 @@ hr {
 nav {
     margin-bottom: 20px;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
 }
 
