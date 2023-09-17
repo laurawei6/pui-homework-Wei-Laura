@@ -79,7 +79,6 @@ main {
 
 main.cart {
     align-items: end;
-    padding: 0px 80px;
 }
 
 /* product card */
@@ -173,6 +172,7 @@ button {
     align-items: center;
     justify-content: space-between;
     width: 700px;
+    padding-right: 150px;
 }
 
 .product-choices {
@@ -192,11 +192,11 @@ button {
     font-weight: bold;
 }
 
-.product-offering-price.cart, p.total.cart {
+.product-offering-price.cart, p.total-cart {
     margin: 15px 0px;
     font-size: 20px;
 }
 
 #cart-line {
-    width: 750px;
+    width: 1200px;
 }
