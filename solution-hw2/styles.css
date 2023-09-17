@@ -54,7 +54,7 @@ nav a {
     text-transform: uppercase;
     text-decoration: none;
     font-size: 24px;
-    margin: 0px 30px;
+    margin: 0px 40px;
 }
 
 main a:hover, nav a:hover {
@@ -89,7 +89,7 @@ main {
 }
 
 .product-offering.gallery {
-    margin: 0px 20px;
+    margin: 0px 30px;
 }
 
 .product-offering.gallery:hover, nav a:hover {
