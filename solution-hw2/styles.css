@@ -99,6 +99,7 @@ main.cart {
 
 .product-offering.gallery {
     margin: 0px 30px;
+    padding: 5px;
 }
 
 .product-offering.gallery:hover {
