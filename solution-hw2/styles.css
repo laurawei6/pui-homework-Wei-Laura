@@ -41,12 +41,15 @@ hr {
 nav {
     margin-bottom: 20px;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 nav a {
     text-transform: uppercase;
     text-decoration: none;
     font-size: 24px;
+    margin: 0px 30px;
 }
 
 main a:hover, nav a:hover {
@@ -58,7 +61,7 @@ main a:hover, nav a:hover {
 }
 
 /* flexbox info is from this website: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
-nav, main {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
