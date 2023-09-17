@@ -57,8 +57,9 @@ nav a {
     margin: 0px 40px;
 }
 
-main a:hover, nav a:hover {
+main a:hover, nav a:hover, .highlighted {
     font-weight: 700;
+    background-color: yellow;
 }
 
 #navigation {
@@ -92,7 +93,7 @@ main {
     margin: 0px 30px;
 }
 
-.product-offering.gallery:hover, nav a:hover {
+.product-offering.gallery:hover {
     background-color: yellow;
 }
 
