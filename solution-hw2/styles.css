@@ -66,6 +66,11 @@ nav, main {
 
 /* product card */
 /* product in the gallery*/
+.product-offering-rows {
+    display: flex;
+    padding: 20px 0px;
+}
+
 .product-offering {
     display: flex;
     flex-direction: column;
@@ -76,8 +81,7 @@ nav, main {
 }
 
 .product-offering.gallery {
-    margin: 20px 0px;
-    padding: 5px;
+    margin: 0px 20px;
 }
 
 .product-offering.gallery:hover, nav a:hover {
@@ -85,7 +89,7 @@ nav, main {
 }
 
 .product-offering.gallery img {
-    width: 400px; height: 400px;
+    width: 285px; height: 285px;
     margin-bottom: 2px; 
 }
 
