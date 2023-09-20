@@ -1,7 +1,7 @@
 // glazing options for buns
 let glazing = {
     options: ["Keep original", "Sugar milk", "Vanilla milk", "Double chocolate"],
-    price-adaptation: ["+ $0.00", "+ $0.00", "+ $0.50", "+ $1.50"],
+    priceAdaptation: ["+ $0.00", "+ $0.00", "+ $0.50", "+ $1.50"],
 }
 
 // pack size options for buns
@@ -12,3 +12,7 @@ let packSize = {
 
 // dropdown options
 let glazingDropdown = document.querySelector("#glazing");
+
+for (let option of glazing.options){
+    console.log(option);
+}
