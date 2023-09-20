@@ -14,19 +14,28 @@ const packSize = {
 let glazingDropdown = document.querySelector("#glazing");
 let packSizeDropdown = document.querySelector("#pack-size");
 
-for (let option of glazing.options){
+for (let i=0; i < glazing.options.length; i++){
     let newOption = document.createElement("option");
-    newOption.setAttribute("value", option);
-    newOption.textContent = option;
+    newOption.setAttribute("value", glazing.priceAdaptation[i]);
+    newOption.textContent = glazing.options[i];
     glazingDropdown.appendChild(newOption);
 }
 
-for (let option of packSize.options){
+for (let i=0; i < packSize.options.length; i++){
     let newOption = document.createElement("option");
-    newOption.setAttribute("value", option);
-    newOption.textContent = option;
+    newOption.setAttribute("value", packSize.priceAdaptation[i]);
+    newOption.textContent = packSize.options[i];
     packSizeDropdown.appendChild(newOption);
 }
 
 // roll prices
 let defaultPrice = 2.49;
+const totalPriceDetail = document.querySelector(".total.detail");
+
+function glazingChange(element) {
+    // get value of selected glazing option
+    const priceChange = element.value;
+    // update the price
+    totalPriceDetail.textContent = priceChange;
+}
+  
