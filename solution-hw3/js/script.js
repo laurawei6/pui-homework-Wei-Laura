@@ -1,13 +1,13 @@
 // glazing options for rolls
 const glazing = {
     options: ["Keep original", "Sugar milk", "Vanilla milk", "Double chocolate"],
-    priceAdaptation: ["+ $0.00", "+ $0.00", "+ $0.50", "+ $1.50"],
+    priceAdaptation: [0, 0, 0.5, 1.5],
 }
 
 // pack size options for rolls
 const packSize = {
     options: [1, 3, 6, 12],
-    priceAdaptation: ["*1", "*3", "*5", "*10"],
+    priceAdaptation: [1, 3, 5, 10],
 }
 
 // dropdown options
@@ -34,8 +34,9 @@ const totalPriceDetail = document.querySelector(".total.detail");
 
 function glazingChange(element) {
     // get value of selected glazing option
-    const priceChange = element.value;
+    const priceChange = parseFloat(element.value);
     // update the price
+
     totalPriceDetail.textContent = priceChange;
 }
   
