@@ -29,4 +29,4 @@ for (let option of packSize.options){
 }
 
 // roll prices
-let defaultPrice = 2.49
+let defaultPrice = 2.49;
