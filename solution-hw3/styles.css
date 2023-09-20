@@ -1,0 +1,224 @@
+body {
+    font-family: Poppins, Helvetica, sans-serif;
+    font-weight: 300; font-size: 18px; /* all body text, not headings */
+}
+
+body, a {
+    color: black;
+}
+
+/* heading and text styles */
+h1 {
+    font-weight: 300;
+    font-size: 28px;
+    margin: 100px 30px; 
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+p.total {
+    font-weight: bold;
+}
+
+/* header and logo for all pages */
+.header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.navigation-header {
+    flex-grow: 2;
+}
+
+#logo {
+    width: 400px;
+}
+
+hr {
+    border: 2px solid black;
+}
+
+/*nav for all pages */
+nav {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 0px 40px;
+}
+
+main a:hover, nav a:hover, .highlighted {
+    font-weight: 700;
+    background-color: yellow;
+}
+
+#navigation {
+    flex-grow: 1;
+}
+
+/* flexbox info is from this website: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.cart {
+    align-items: end;
+}
+
+/* product card */
+/* product in the gallery*/
+.product-offering-rows {
+    display: flex;
+    padding: 20px 0px;
+}
+
+.product-offering {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-offering img {
+    border: 4px solid black;
+}
+
+.product-offering.gallery {
+    margin: 0px 30px;
+    padding: 5px;
+}
+
+.product-offering.gallery:hover {
+    background-color: yellow;
+}
+
+.product-offering.gallery img {
+    width: 285px; height: 285px;
+    margin-bottom: 2px; 
+}
+
+/* product in the detail page*/
+.detail-page {
+    display: flex;
+    gap: 50px;
+}
+
+.product-options {
+
+    flex-direction: column;
+}
+
+.product-offering-description.detail {
+    width: 225px;
+    margin: 20px auto;
+}
+
+.product-offering.detail img {
+    width: 600px; height: 600px;
+}
+
+/* product in cart */
+.product-offering.cart img {
+    width: 200px; height: 200px;
+}
+
+/* customize options on detail page */
+.customize-options, .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.options, .total-addToCart {
+    width: 225px;
+}
+
+select {
+    margin: 5px 0px;
+}
+
+/* total and add to cart on detail page */
+.total-addToCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 20px;
+}
+
+button {
+    background-color: yellow;
+    border: 2px solid black;
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* shopping cart page */
+/* product-choices-total is for img+selections+price + remove */
+.product-choices-total {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+}
+
+/* product-choices-price is for img+selections + price */
+.product-choices-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* product-choices is for img + selections */
+.product-choices {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.remove {
+    font-size: 12px;
+    text-decoration: underline;
+    margin: 5px 0px;
+    font-weight: bold;
+}
+
+.product-offering-price.cart, p.cart {
+    font-size: 20px;
+}
+
+#cart-line {
+    width: 65%;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+div.total {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin: 30px 0px;
+}
+
+.total-checkout {
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}

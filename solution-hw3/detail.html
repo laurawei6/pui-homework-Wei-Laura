@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Laura Wei HW 2 Solution</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+      <!-- this came from looking at the lab materials and from this website https://developers.google.com/fonts/docs/getting_started-->
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="header gallery">
+
+        <div class="logo">
+          <a href="gallery.html">
+            <img id="logo" src="../assets/logo/logo-01.svg" alt="Cartoon Cinnamon Roll" width="400">
+          </a>
+        </div>
+
+        <div class="navigation-header">
+    
+          <div id="navigation">
+            <nav>
+              <a href="gallery.html">products</a>
+              <a href="cart.html">cart</a>
+            </nav>
+          </div>
+
+          <hr>
+
+          <h1>Original cinnamon roll</h1>
+
+        </div>
+  
+      </div>
+    </header>
+    
+    <main>
+
+      <div class="detail-page"> 
+        <div class="product-offering detail">
+          <img src="../assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll" width="600">
+        </div>
+  
+        <div class="product-options detail"> 
+  
+          <p class="product-offering-description detail">Customize our delicious, hand-made cinammon roll to your liking!</p>
+  
+          <div class="customize-options">
+            
+            <div class="glazing options">
+                <label for="glazing">Glazing:</label>
+                <select name="glazing" id="glazing"> 
+                    <option value="Keep-original">Keep original</option>
+                    <option value="Sugar-milk">Sugar milk</option>
+                    <option value="Vanilla-milk">Vanilla milk</option>
+                    <option value="Double-chocolate">Double chocolate</option>
+                </select>
+            </div>
+            
+            <div class="pack-size options">
+                <label for="pack-size">Pack size:</label>
+                <select name="pack-size" id="pack-size"> 
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="6">6</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+            
+          </div>
+    
+          <div class="total-addToCart">
+            <p class="total detail"> $2.49 </p>
+            <button type="button">Add to Cart</button>
+          </div>
+  
+        </div>
+      </div>
+
+    </main>
+
+  </body>
+</html>
