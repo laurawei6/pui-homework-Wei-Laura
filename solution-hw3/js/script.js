@@ -29,14 +29,19 @@ for (let i=0; i < packSize.options.length; i++){
 }
 
 // roll prices
-let defaultPrice = 2.49;
+let basePrice = 2.49;
 const totalPriceDetail = document.querySelector(".total.detail");
+let glazingPrice = 0;
+let packPrice = 1;
+let totalItemPrice = (basePrice + glazingPrice) * packPrice;
 
 function glazingChange(element) {
     // get value of selected glazing option
-    const priceChange = parseFloat(element.value);
+    const glazingPrice = parseFloat(element.value);
+    
     // update the price
-
-    totalPriceDetail.textContent = priceChange;
+    console.log("glazing price", glazingPrice);
+    console.log("glazing price type", typeof glazingPrice);
+    totalPriceDetail.textContent = "$" + String(totalItemPrice);
 }
   
