@@ -30,21 +30,22 @@ for (let i=0; i < packSize.options.length; i++){
 
 // roll prices
 let basePrice = 2.49;
-const totalPriceDetail = document.querySelector(".total.detail");
+let totalPriceDetail = document.querySelector(".total.detail");
 let glazingPrice = 0;
 let packPrice = 1;
-let totalItemPrice = (basePrice + glazingPrice) * packPrice;
+let totalItemPrice;
 
 function glazingChange(element) {
     // get value of selected glazing option
     const glazingPrice = parseFloat(element.value);
     
     // update the price
-    console.log("glazing price", glazingPrice);
-    console.log("glazing price type", typeof glazingPrice);
-    console.log("total item price:", totalItemPrice);
-    totalItemPrice;
-    console.log("total item price:", totalItemPrice);
-    totalPriceDetail.textContent = "$" + String(totalItemPrice);
+    // the formula to update the price
+    totalItemPrice = (basePrice + glazingPrice) * packPrice;
+    
+    // the formula to update the HTML to the new price
+    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
 }
+
+
   
