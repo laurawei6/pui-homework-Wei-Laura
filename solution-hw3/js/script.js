@@ -37,15 +37,30 @@ let totalItemPrice;
 
 function glazingChange(element) {
     // get value of selected glazing option
-    const glazingPrice = parseFloat(element.value);
+    glazingPrice = parseFloat(element.value);
     
     // update the price
     // the formula to update the price
-    totalItemPrice = (basePrice + glazingPrice) * packPrice;
+    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
+    /* used this stackoverflow thread to round to two decimal places: 
+    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
     
     // the formula to update the HTML to the new price
     totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
+
+    // console.log(glazingPrice);
 }
 
+function packChange(element) {
+    // get value of selected pack size option
+    packPrice = parseInt(element.value);
 
-  
+    // update the price
+    // the formula to update the price
+    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
+    /* used this stackoverflow thread to round to two decimal places: 
+    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
+
+    // the formula to update the HTML to the new price
+    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
+}
