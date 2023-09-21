@@ -42,6 +42,9 @@ function glazingChange(element) {
     // update the price
     console.log("glazing price", glazingPrice);
     console.log("glazing price type", typeof glazingPrice);
+    console.log("total item price:", totalItemPrice);
+    totalItemPrice;
+    console.log("total item price:", totalItemPrice);
     totalPriceDetail.textContent = "$" + String(totalItemPrice);
 }
   
