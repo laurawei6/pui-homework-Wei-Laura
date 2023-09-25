@@ -47,8 +47,6 @@ function glazingChange(element) {
     
     // the formula to update the HTML to the new price
     totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
-
-    // console.log(glazingPrice);
 }
 
 function packChange(element) {
