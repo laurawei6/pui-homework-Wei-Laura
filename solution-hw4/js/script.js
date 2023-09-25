@@ -62,3 +62,8 @@ function packChange(element) {
     // the formula to update the HTML to the new price
     totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
 }
+
+const cart = [];
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollType = params.get('roll');
