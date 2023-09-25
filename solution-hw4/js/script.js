@@ -65,5 +65,8 @@ function packChange(element) {
 
 const cart = [];
 const queryString = window.location.search;
+console.log(queryString);
 const params = new URLSearchParams(queryString);
+
+console.log(params);
 const rollType = params.get('roll');
