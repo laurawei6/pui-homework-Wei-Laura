@@ -93,13 +93,8 @@ const rolls = {
 
 const cart = [];
 const queryString = window.location.search;
-console.log(queryString);
 const params = new URLSearchParams(queryString);
-
-console.log(params);
 const rollType = params.get('roll');
-
-console.log(rollType);
 
 // Update the header text
 const headerElement = document.querySelector('.detail-header');
