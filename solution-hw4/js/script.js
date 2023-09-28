@@ -105,8 +105,7 @@ console.log(rollType);
 const headerElement = document.querySelector('.detail-header');
 headerElement.innerText = rollType + " Cinnamon Roll";
 
-rolls[rollType]
-
 // Update the image
-const detailImage = document.querySelector('#animal-img');
-// animalImage.src = './assets/warhol-' + chosenAnimal + '.png';
+const detailImage = document.querySelector('#roll-detail-page');
+let rollImage = rolls[rollType].imageFile;
+detailImage.src = '../assets/products/' + rollImage;
