@@ -28,21 +28,6 @@ for (let i=0; i < packSize.options.length; i++){
     packSizeDropdown.appendChild(newOption);
 }
 
-// detail page updates
-const cart = [];
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const rollType = params.get('roll');
-
-// Update the header text
-const headerElement = document.querySelector('.detail-header');
-headerElement.innerText = rollType + " Cinnamon Roll";
-
-// Update the image
-const detailImage = document.querySelector('#roll-detail-page');
-let rollImage = rolls[rollType].imageFile;
-detailImage.src = '../assets/products/' + rollImage;
-
 // roll prices
 let basePrice = rolls[rollType].basePrice;
 let totalPriceDetail = document.querySelector(".total.detail");
@@ -78,6 +63,21 @@ function packChange(element) {
     // the formula to update the HTML to the new price
     totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
 }
+
+// detail page updates
+const cart = [];
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollType = params.get('roll');
+
+// Update the header text
+const headerElement = document.querySelector('.detail-header');
+headerElement.innerText = rollType + " Cinnamon Roll";
+
+// Update the image
+const detailImage = document.querySelector('#roll-detail-page');
+let rollImage = rolls[rollType].imageFile;
+detailImage.src = '../assets/products/' + rollImage;
 
 class Roll {
     constructor(rollType, rollGlazing, packSize, basePrice) {
