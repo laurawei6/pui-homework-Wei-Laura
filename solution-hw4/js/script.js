@@ -78,3 +78,17 @@ function packChange(element) {
     // the formula to update the HTML to the new price
     totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
 }
+
+class Roll {
+    constructor(rollType, rollGlazing, packSize, basePrice) {
+        this.type = rollType;
+        this.glazing =  rollGlazing;
+        this.size = packSize;
+        this.basePrice = basePrice;
+    }
+}
+
+console.log(cart);
+
+// add to cart
+const addToCart = 
