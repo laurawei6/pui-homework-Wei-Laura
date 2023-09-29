@@ -92,3 +92,8 @@ console.log(cart);
 
 // add to cart
 let addToCart = document.querySelector("button");
+addToCart.addEventListener("click", function() {
+    let roll = new Roll(rollType, glazingDropdown.value, packSizeDropdown.value, price);
+    cart.push(roll);
+    console.log(cart);
+})
