@@ -91,4 +91,4 @@ class Roll {
 console.log(cart);
 
 // add to cart
-const addToCart = 
+let addToCart = document.querySelector("button");
