@@ -28,69 +28,7 @@ for (let i=0; i < packSize.options.length; i++){
     packSizeDropdown.appendChild(newOption);
 }
 
-// roll prices
-let basePrice = 2.49;
-let totalPriceDetail = document.querySelector(".total.detail");
-let glazingPrice = 0;
-let packPrice = 1;
-let totalItemPrice;
-
-function glazingChange(element) {
-    // get value of selected glazing option
-    glazingPrice = parseFloat(element.value);
-    
-    // update the price
-    // the formula to update the price
-    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
-    /* used this stackoverflow thread to round to two decimal places: 
-    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
-    
-    // the formula to update the HTML to the new price
-    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
-}
-
-function packChange(element) {
-    // get value of selected pack size option
-    packPrice = parseInt(element.value);
-
-    // update the price
-    // the formula to update the price
-    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
-    /* used this stackoverflow thread to round to two decimal places: 
-    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
-
-    // the formula to update the HTML to the new price
-    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
-}
-
 // detail page updates
-const rolls = {
-    "Original": {
-        "basePrice": 2.49,
-        "imageFile": "original-cinnamon-roll.jpg"
-    },
-    "Apple": {
-        "basePrice": 3.49,
-        "imageFile": "apple-cinnamon-roll.jpg"
-    },
-    "Raisin": {
-        "basePrice": 2.99,
-        "imageFile": "raisin-cinnamon-roll.jpg"
-    },
-    "Walnut": {
-        "basePrice": 3.49,
-        "imageFile": "walnut-cinnamon-roll.jpg"
-    },
-    "Double-Chocolate": {
-        "basePrice": 3.99,
-        "imageFile": "double-chocolate-cinnamon-roll.jpg"
-    },
-    "Strawberry": {
-        "basePrice": 3.99,
-        "imageFile": "strawberry-cinnamon-roll.jpg"
-    }    
-};
-
 const cart = [];
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
@@ -104,3 +42,39 @@ headerElement.innerText = rollType + " Cinnamon Roll";
 const detailImage = document.querySelector('#roll-detail-page');
 let rollImage = rolls[rollType].imageFile;
 detailImage.src = '../assets/products/' + rollImage;
+
+// roll prices
+let price = rolls[rollType].basePrice;
+let totalPriceDetail = document.querySelector(".total.detail");
+let glazingPrice = 0;
+let packPrice = 1;
+let totalItemPrice;
+totalPriceDetail.innerHTML = "$" + price;
+
+function glazingChange(element) {
+    // get value of selected glazing option
+    glazingPrice = parseFloat(element.value);
+    
+    // update the price
+    // the formula to update the price
+    totalItemPrice = ((price + glazingPrice) * packPrice).toFixed(2);
+    /* used this stackoverflow thread to round to two decimal places: 
+    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
+    
+    // the formula to update the HTML to the new price
+    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
+}
+
+function packChange(element) {
+    // get value of selected pack size option
+    packPrice = parseInt(element.value);
+
+    // update the price
+    // the formula to update the price
+    totalItemPrice = ((price + glazingPrice) * packPrice).toFixed(2);
+    /* used this stackoverflow thread to round to two decimal places: 
+    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
+
+    // the formula to update the HTML to the new price
+    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
+}
