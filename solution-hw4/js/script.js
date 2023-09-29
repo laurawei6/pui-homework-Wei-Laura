@@ -44,12 +44,12 @@ let rollImage = rolls[rollType].imageFile;
 detailImage.src = '../assets/products/' + rollImage;
 
 // roll prices
-let price = rolls[rollType].basePrice;
+let basePrice = rolls[rollType].basePrice;
 let totalPriceDetail = document.querySelector(".total.detail");
 let glazingPrice = 0;
 let packPrice = 1;
 let totalItemPrice;
-totalPriceDetail.innerHTML = "$" + price;
+totalPriceDetail.innerHTML = "$" + basePrice;
 
 function glazingChange(element) {
     // get value of selected glazing option
@@ -57,7 +57,7 @@ function glazingChange(element) {
     
     // update the price
     // the formula to update the price
-    totalItemPrice = ((price + glazingPrice) * packPrice).toFixed(2);
+    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
     /* used this stackoverflow thread to round to two decimal places: 
     https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
     
@@ -71,7 +71,7 @@ function packChange(element) {
 
     // update the price
     // the formula to update the price
-    totalItemPrice = ((price + glazingPrice) * packPrice).toFixed(2);
+    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
     /* used this stackoverflow thread to round to two decimal places: 
     https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
 
@@ -93,7 +93,7 @@ console.log(cart);
 // add to cart
 let addToCart = document.querySelector("button");
 addToCart.addEventListener("click", function() {
-    let roll = new Roll(rollType, glazingDropdown.value, packSizeDropdown.value, price);
+    let roll = new Roll(rollType, glazingDropdown.value, packSizeDropdown.value, basePrice);
     cart.push(roll);
     console.log(cart);
 })
