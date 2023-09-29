@@ -17,7 +17,7 @@ let packSizeDropdown = document.querySelector("#pack-size");
 for (let i=0; i < glazing.options.length; i++){
     let newOption = document.createElement("option");
     newOption.setAttribute("value", glazing.priceAdaptation[i]);
-    newOption.textContent = glazing.options[i];
+    newOption.text = glazing.options[i];
     glazingDropdown.appendChild(newOption);
 }
 
