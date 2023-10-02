@@ -1,3 +1,9 @@
+// detail page updates
+const cart = [];
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollType = params.get('roll');
+
 // glazing options for rolls
 const glazing = {
     options: ["Keep original", "Sugar milk", "Vanilla milk", "Double chocolate"],
@@ -64,12 +70,6 @@ function packChange(element) {
     totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
 }
 
-// detail page updates
-const cart = [];
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const rollType = params.get('roll');
-
 // Update the header text
 const headerElement = document.querySelector('.detail-header');
 headerElement.innerText = rollType + " Cinnamon Roll";
@@ -87,8 +87,6 @@ class Roll {
         this.basePrice = basePrice;
     }
 }
-
-console.log(cart);
 
 // add to cart
 let addToCart = document.querySelector("button");
