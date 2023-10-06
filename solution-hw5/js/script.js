@@ -101,19 +101,17 @@ const roll1 = new Roll("Original", glazing.options[1], packSize.options[0], base
 console.log(roll1);
 
 function addNewRoll(rollType, rollGlazing, packSize, basePrice) {
-    // Create a new roll object. The Roll constructor takes three
-    // arguments: the image URL, title text,  and body text.
+    // Create a new roll object using Roll class
     const roll = new Roll(rollType, rollGlazing, packSize, basePrice);
   
-    // Add the notecard object to our notecard Set, which keeps track of all
-    // the notecards in our application.
+    // Add the roll object to our cart Set
     cart.add(roll);
   
     return roll;
 }
 
-function createElement(notecard) {
-    // make a clone of the notecard template
+function createElement(roll) {
+    // make a clone of the roll template
     const template = document.querySelector('#notecard-template');
     const clone = template.content.cloneNode(true);
     
