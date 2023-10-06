@@ -85,6 +85,8 @@ class Roll {
         this.glazing =  rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
+
+        this.element = null;
     }
 }
 
@@ -96,10 +98,11 @@ addToCart.addEventListener("click", function() {
     console.log(cart);
 })
 
-// creating new rolls
+
 const roll1 = new Roll("Original", glazing.options[1], packSize.options[0], basePrice);
 console.log(roll1);
 
+// creating new rolls using class and constructor
 function addNewRoll(rollType, rollGlazing, packSize, basePrice) {
     // Create a new roll object using Roll class
     const roll = new Roll(rollType, rollGlazing, packSize, basePrice);
@@ -110,26 +113,40 @@ function addNewRoll(rollType, rollGlazing, packSize, basePrice) {
     return roll;
 }
 
+// creating new rolls
 function createElement(roll) {
     // make a clone of the roll template
-    const template = document.querySelector('#notecard-template');
+    const template = document.querySelector('#product-choices-total-template');
     const clone = template.content.cloneNode(true);
     
-    // connect this clone to our notecard.element
-    // from this point we only need to refer to notecard.element
-    notecard.element = clone.querySelector('.notecard');
+    roll.element = clone.querySelector('.product-choices-total');
   
-    const btnDelete = notecard.element.querySelector('.icon-delete');
-    console.log(btnDelete);
-    btnDelete.addEventListener('click', () => {
-      deleteNote(notecard);
+    const removeBtn = roll.element.querySelector('.remove');
+    console.log(removeBtn);
+    removeBtn.addEventListener('click', () => {
+      deleteRoll(roll);
     });
     
-    // add the notecard clone to the DOM
-    // find the notecard parent (#notecard-list) and add our notecard as its child
-    const notecardListElement = document.querySelector('#notecard-list');
-    notecardListElement.prepend(notecard.element);
+    // add the roll clone to the DOM
+    const cartList = document.querySelector('#cart');
+    cartList.appendChild(roll.element);
     
-    // populate the notecard clone with the actual notecard content
-    updateElement(notecard);
+    // populate the roll clone with the actual roll content
+    updateElement(roll);
   }
+
+  // updating the roll with information
+  function updateElement(roll) {
+    // get the HTML elements that need updating
+    const rollImageElement = notecard.element.querySelector('.product-card-img');
+    const rollTitleElement = notecard.element.querySelector('.product-offering-name .cart');
+    console.log(rolleTitleElement);
+    const rollBodyElement = notecard.element.querySelector('.note-body');
+    
+    // copy our notecard content over to the corresponding HTML elements
+    noteImageElement.src = notecard.noteImageURL;
+    noteTitleElement.innerText = notecard.noteTitle;
+    noteBodyElement.innerText = notecard.noteBody;
+  }
+
+  updateElement(roll);
