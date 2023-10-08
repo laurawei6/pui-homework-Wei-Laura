@@ -74,7 +74,7 @@ function createElement(newRoll) {
     
     rollImage.src = "../assets/products/" + newRoll.type + "-cinnamon-roll.jpg";
     rollName.innerHTML = newRoll.type + " Cinnamon Roll";
-    rollGlazing.innerHTML = "Glazing: " + newRoll.glazing;
+    rollGlazing.innerHTML = newRoll.glazing;
     rollPackSize.innerHTML = "Pack size: " + newRoll.size;
     rollPrice.innerHTML = "$" + newRoll.totalPrice();
 
