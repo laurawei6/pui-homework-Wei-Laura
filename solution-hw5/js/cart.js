@@ -18,14 +18,6 @@ const packSize = {
 let glazingDropdown = document.querySelector("#glazing");
 let packSizeDropdown = document.querySelector("#pack-size");
 
-// roll prices
-// let basePrice = rolls[rollType]["basePrice"];
-// let totalPriceDetail = document.querySelector(".total.detail");
-// let glazingPrice = 0;
-// let packPrice = 1;
-// let totalItemPrice;
-// totalPriceDetail.innerHTML = "$" + basePrice;
-
 class Roll {
     constructor(rollType, rollGlazing, packSize, rollPrice) {
         this.type = rollType;
@@ -49,33 +41,21 @@ class Roll {
     }
 }
 
-// add to cart
-let addToCart = document.querySelector("button");
-addToCart.addEventListener("click", function() {
-    let roll = new Roll(rollType, glazingDropdown, packSizeDropdown, basePrice);
-    cart.push(roll);
-    console.log(cart);
-})
-
 const originalRoll = new Roll("Original", glazing.options[1], packSize.options[0], 2.49);
 const walnutRoll = new Roll("Walnut", glazing.options[2], packSize.options[3], 3.49);
 const raisinRoll = new Roll("Raisin", glazing.options[1], packSize.options[1], 2.99);
 const appleRoll = new Roll("Apple", glazing.options[0], packSize.options[1], 3.49);
-console.log(originalRoll);
-console.log(walnutRoll);
-console.log(raisinRoll);
-console.log(originalRoll.totalPrice());
 
-// creating new rolls using class and constructor
-function addNewRoll(rollType, rollGlazing, packSize, basePrice) {
-    // Create a new roll object using Roll class
-    const newRoll = new Roll(rollType, rollGlazing, packSize, basePrice);
-  
-    // Add the roll object to our cart Set
-    cart.add(newRoll);
-  
-    return newRoll;
-}
+cart.add(originalRoll);
+cart.add(walnutRoll);
+cart.add(raisinRoll);
+cart.add(appleRoll);
+
+const shoppingCart = document.querySelector("#cart-overview");
+
+// cart price
+const cartPrice = document.querySelector('.total-price.cart');
+let price = 0;
 
 // creating new rolls
 function createElement(newRoll) {
@@ -84,32 +64,53 @@ function createElement(newRoll) {
     const clone = template.content.cloneNode(true);
     
     newRoll.element = clone.querySelector('.product-choices-total');
-  
+
+    // options
+    const rollImage = clone.querySelector('#product-cart-img');
+    const rollName = clone.querySelector('.product-offering-name.cart');
+    const rollGlazing = clone.querySelector('.product-offering-glazing.cart');
+    const rollPackSize = clone.querySelector('.product-offering-pack-size.cart');
+    const rollPrice = clone.querySelector('.product-offering-price.cart');
+    
+    rollImage.src = "../assets/products/" + newRoll.type + "-cinnamon-roll.jpg";
+    rollName.innerHTML = newRoll.type + " Cinnamon Roll";
+    rollGlazing.innerHTML = "Glazing: " + newRoll.glazing;
+    rollPackSize.innerHTML = "Pack size: " + newRoll.size;
+    rollPrice.innerHTML = "$" + newRoll.totalPrice();
+
+    shoppingCart.appendChild(clone);
+    
+    // add the roll clone to the DOM
+    const cartList = document.querySelector('#cart-overview');
+    cartList.appendChild(newRoll.element);
+
+    // take price of bun and add to the cart price
+    price += parseFloat(newRoll.totalPrice());
+    updateCartPrice(newRoll);
+
     const removeBtn = newRoll.element.querySelector('.remove');
-    console.log(removeBtn);
     removeBtn.addEventListener('click', () => {
       deleteRoll(newRoll);
     });
-    
-    // add the roll clone to the DOM
-    const cartList = document.querySelector('#cart');
-    cartList.appendChild(roll.element);
-    
-    // populate the roll clone with the actual roll content
-    updateElement(newRoll);
   }
 
-  // updating the roll with information
-  function updateElement(newRoll) {
-    // get the HTML elements that need updating
-    const rollImageElement = notecard.element.querySelector('.product-card-img');
-    const rollName = notecard.element.querySelector('.product-offering-name .cart');
-    const rollGlazing = notecard.element.querySelector('.product-offering-glazing .cart');
-    const rollPackSize = notecard.element.querySelector('.product-offering-pack-size .cart');
-    
-    // copy our roll content over to the corresponding HTML elements
-    rollImageElement.src = newRoll.noteImageURL;
-    // noteTitleElement.innerText = notecard.noteTitle;
-    // noteBodyElement.innerText = notecard.noteBody;
-  }
+for (const newRoll of cart) {
+    // const newRollElement = createElement(newRoll);
+    createElement(newRoll);
+}
 
+function updateCartPrice(newRoll) {
+    cartPrice.innerHTML = "$" + String(Math.abs(price).toFixed(2));
+}
+
+function deleteRoll(newRoll) {
+    // change price based on 
+    price -= newRoll.totalPrice();
+    console.log(price);
+    updateCartPrice(newRoll);
+    
+    // remove the roll DOM object from the UI
+    newRoll.element.remove();
+    // remove the actual Notecard object from our set of notecards
+    cart.delete(newRoll);
+  }
