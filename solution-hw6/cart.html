@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Laura Wei HW 5 Solution</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+      <!-- this came from looking at the lab materials and from this website https://developers.google.com/fonts/docs/getting_started-->
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <script src="js/rollsData.js"></script>
+    <script src="js/cart.js" defer></script>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="header gallery">
+
+        <div class="logo">
+          <a href="gallery.html">
+            <img id="logo" src="../assets/logo/logo-01.svg" alt="Cartoon Cinnamon Roll" width="400">
+          </a>
+        </div>
+
+        <div class="navigation-header">
+    
+          <div id="navigation">
+            <nav>
+              <a href="gallery.html">products</a>
+              <a href="cart.html" class="highlighted">cart</a>
+            </nav>
+          </div>
+
+          <hr>
+
+          <h1>Shopping Cart</h1>
+
+        </div>
+  
+      </div>
+    </header>
+    
+    <main>
+      <div id="cart-overview">
+        <template id="product-choices-total-template">
+          <div class="product-choices-total">
+            <div class="product-choices-price">
+              <div class="product-choices"> 
+                
+                <div class="product-offering cart">
+                  <img src="../assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll" width="200" id="product-cart-img">
+                </div>
+          
+                <div class="product-offering-choices cart"> 
+                  <p class="product-offering-name cart"></p>
+                  <p class="product-offering-glazing cart"></p>
+                  <p class="product-offering-pack-size cart"></p>
+                </div>
+      
+              </div>
+      
+              <p class="product-offering-price cart"></p>
+              
+            </div>
+    
+            <p class="remove">Remove</p>
+              
+          </div>
+        </template>
+      </div>
+      
+      <hr id="cart-line">
+
+      <div class="total-checkout">
+
+        <div class="total">
+          <p class="total-word cart"> Total: </p>
+          <p class="total-price cart"> </p>
+        </div>
+  
+        <div class="checkout">
+          <button type="button">Checkout</button>
+        </div>
+
+      </div>
+      
+
+    </main>
+
+  </body>
+</html>
