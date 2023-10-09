@@ -72,7 +72,7 @@ function createElement(newRoll) {
     const rollPackSize = clone.querySelector('.product-offering-pack-size.cart');
     const rollPrice = clone.querySelector('.product-offering-price.cart');
     
-    rollImage.src = "../assets/products/" + newRoll.type + "-cinnamon-roll.jpg";
+    rollImage.src = "../assets/products/" + newRoll.type.toLowerCase() + "-cinnamon-roll.jpg";
     rollName.innerHTML = newRoll.type + " Cinnamon Roll";
     rollGlazing.innerHTML = newRoll.glazing;
     rollPackSize.innerHTML = "Pack size: " + newRoll.size;
