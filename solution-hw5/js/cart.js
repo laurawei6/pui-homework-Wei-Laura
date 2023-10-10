@@ -95,7 +95,6 @@ function createElement(newRoll) {
   }
 
 for (const newRoll of cart) {
-    // const newRollElement = createElement(newRoll);
     createElement(newRoll);
 }
 
