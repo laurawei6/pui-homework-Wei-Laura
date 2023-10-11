@@ -10,6 +10,7 @@ const packSize = {
     priceAdaptation: [1, 3, 5, 10],
 }
 
+// detail page
 // dropdown options
 let glazingDropdown = document.querySelector("#glazing");
 let packSizeDropdown = document.querySelector("#pack-size");
@@ -27,6 +28,43 @@ for (let i=0; i < packSize.options.length; i++){
     newOption.textContent = packSize.options[i];
     packSizeDropdown.appendChild(newOption);
 }
+
+function glazingChange(element) {
+    // get value of selected glazing option
+    glazingPrice = parseFloat(element.value);
+    
+    // update the price
+    // the formula to update the price
+    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
+    /* used this stackoverflow thread to round to two decimal places: 
+    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
+    
+    // the formula to update the HTML to the new price
+    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
+}
+
+function packChange(element) {
+    // get value of selected pack size option
+    packPrice = parseInt(element.value);
+
+    // update the price
+    // the formula to update the price
+    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
+    /* used this stackoverflow thread to round to two decimal places: 
+    https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
+
+    // the formula to update the HTML to the new price
+    totalPriceDetail.innerHTML = "$" + String(totalItemPrice);
+}
+
+// Update the header text
+const headerElement = document.querySelector('.detail-header');
+headerElement.innerText = rollType + " Cinnamon Roll";
+
+// Update the image
+const detailImage = document.querySelector('#roll-detail-page');
+let rollImage = rolls[rollType].imageFile;
+detailImage.src = '../assets/products/' + rollImage;
 
 // detail page updates
 const cart = new Set();
