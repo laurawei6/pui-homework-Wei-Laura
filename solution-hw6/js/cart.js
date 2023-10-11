@@ -11,7 +11,7 @@ const glazing = {
 }
 
 // pack size options for rolls
-const packSize = {
+const packs = {
     options: [1, 3, 6, 12],
     priceAdaptation: [1, 3, 5, 10],
 }
@@ -28,20 +28,20 @@ for (let i=0; i < glazing.options.length; i++){
     glazingDropdown.appendChild(newOption);
 }
 
-for (let i=0; i < packSize.options.length; i++){
+for (let i=0; i < packs.options.length; i++){
     let newOption = document.createElement("option");
-    newOption.setAttribute("value", packSize.priceAdaptation[i]);
-    newOption.textContent = packSize.options[i];
+    newOption.setAttribute("value", packs.priceAdaptation[i]);
+    newOption.textContent = packs.options[i];
     packSizeDropdown.appendChild(newOption);
 }
 
 // roll prices
-let basePrice = rolls[rollName].basePrice;
+let rollPrice = rolls[rollName].basePrice;
 let totalPriceDetail = document.querySelector(".total.detail");
 let glazingPrice = 0;
 let packPrice = 1;
 let totalItemPrice;
-totalPriceDetail.innerHTML = "$" + basePrice;
+totalPriceDetail.innerHTML = "$" + rollPrice;
 
 function glazingChange(element) {
     // get value of selected glazing option
@@ -49,7 +49,7 @@ function glazingChange(element) {
     
     // update the price
     // the formula to update the price
-    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
+    totalItemPrice = ((rollPrice + glazingPrice) * packPrice).toFixed(2);
     /* used this stackoverflow thread to round to two decimal places: 
     https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
     
@@ -63,7 +63,7 @@ function packChange(element) {
 
     // update the price
     // the formula to update the price
-    totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
+    totalItemPrice = ((rollPrice + glazingPrice) * packPrice).toFixed(2);
     /* used this stackoverflow thread to round to two decimal places: 
     https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary */
 
@@ -104,23 +104,17 @@ class Roll {
 }
 
 // what user selected
-let rollType = rollName;
-let indexOfGlazing = glazing.priceAdaptation.indexOf(glazingDropdown.value);
-console.log("glazing.priceAdaptation: " + glazing.priceAdaptation);
-console.log("glazingdropdown.value: " + glazingDropdown.value);
-console.log("indexofglazing: " + indexOfGlazing);
-let rollGlazing = glazing.options[indexOfGlazing];
-console.log("rollGlazing: " + rollGlazing);
+// source for this line of code is from here: https://stackoverflow.com/questions/5913/getting-the-text-from-a-drop-down-box
+let rollGlazing = glazing.options[glazingDropdown.selectedIndex];
+let packSize = packs.options[packSizeDropdown.selectedIndex];
 
 // add to cart button
 const addToCart = document.querySelector(".total-addToCart button");
-addToCart.addEventListener("click", addNewRoll());
-
-// rollType, rollGlazing, packSize, rollPrice
-
+console.log("addToCart: " + addToCart.outerHTML);
+addToCart.addEventListener("click", addNewRoll.bind(null, rollName, rollGlazing, packSize, rollPrice));
 
 // creates new roll and adds it to cart set
-function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
+function addNewRoll(rollType, rollGlazing, packSize, rollPrice, event) {
     // Create a new roll object
     const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
   
