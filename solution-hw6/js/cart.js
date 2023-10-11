@@ -103,9 +103,21 @@ class Roll {
     }
 }
 
+// what user selected
+let rollType = rollName;
+let indexOfGlazing = glazing.priceAdaptation.indexOf(glazingDropdown.value);
+console.log("glazing.priceAdaptation: " + glazing.priceAdaptation);
+console.log("glazingdropdown.value: " + glazingDropdown.value);
+console.log("indexofglazing: " + indexOfGlazing);
+let rollGlazing = glazing.options[indexOfGlazing];
+console.log("rollGlazing: " + rollGlazing);
+
 // add to cart button
 const addToCart = document.querySelector(".total-addToCart button");
 addToCart.addEventListener("click", addNewRoll());
+
+// rollType, rollGlazing, packSize, rollPrice
+
 
 // creates new roll and adds it to cart set
 function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
@@ -116,7 +128,7 @@ function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
     cart.add(roll);
   
     return roll;
-  }
+}
 
 const shoppingCart = document.querySelector("#cart-overview");
 
@@ -127,7 +139,7 @@ let price = 0;
 // creating new rolls
 function createElement(roll) {
     // make a clone of the roll template
-    const template = document.querySelector('#product-choices-total-template');
+    const template = document.querySelector("#product-choices-total-template");
     const clone = template.content.cloneNode(true);
     
     roll.element = clone.querySelector('.product-choices-total');
@@ -160,7 +172,7 @@ function createElement(roll) {
     removeBtn.addEventListener('click', () => {
       deleteRoll(roll);
     });
-  }
+}
 
 //   const originalRoll = new Roll("Original", glazing.options[1], packSize.options[0], 2.49);
 //   const walnutRoll = new Roll("Walnut", glazing.options[2], packSize.options[3], 3.49);
@@ -193,7 +205,7 @@ function deleteRoll(roll) {
 
     // update local storage
     saveToLocalStorage();
-  }
+}
 
 function saveToLocalStorage() {
     const rollArray = Array.from(cart);
@@ -203,7 +215,7 @@ function saveToLocalStorage() {
     console.log(rollArrayString);
   
     localStorage.setItem('storedRolls', rollArrayString);
-  }
+}
 
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
@@ -212,7 +224,7 @@ function retrieveFromLocalStorage() {
       const roll = addNewRoll(noteData.noteImageURL, noteData.noteTitle, noteData.noteBody);
       createElement(roll);
     }
-  }
+}
 
 // only retrieve if local storage has stuff in it
 if (localStorage.getItem('storedRolls') != null) {
