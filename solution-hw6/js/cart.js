@@ -110,7 +110,6 @@ let packSize = packs.options[packSizeDropdown.selectedIndex];
 
 // add to cart button
 const addToCart = document.querySelector(".total-addToCart button");
-console.log("addToCart: " + addToCart.outerHTML);
 addToCart.addEventListener("click", addNewRoll.bind(null, rollName, rollGlazing, packSize, rollPrice));
 
 // creates new roll and adds it to cart set
@@ -120,6 +119,7 @@ function addNewRoll(rollType, rollGlazing, packSize, rollPrice, event) {
   
     // Add the roll object to roll set
     cart.add(roll);
+    saveToLocalStorage();
   
     return roll;
 }
