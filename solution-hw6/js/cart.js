@@ -1,3 +1,9 @@
+// detail page updates
+const cart = new Set();
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollName = params.get('roll');
+
 // glazing options for rolls
 const glazing = {
     options: ["Keep original", "Sugar milk", "Vanilla milk", "Double chocolate"],
@@ -29,6 +35,14 @@ for (let i=0; i < packSize.options.length; i++){
     packSizeDropdown.appendChild(newOption);
 }
 
+// roll prices
+let basePrice = rolls[rollName].basePrice;
+let totalPriceDetail = document.querySelector(".total.detail");
+let glazingPrice = 0;
+let packPrice = 1;
+let totalItemPrice;
+totalPriceDetail.innerHTML = "$" + basePrice;
+
 function glazingChange(element) {
     // get value of selected glazing option
     glazingPrice = parseFloat(element.value);
@@ -59,16 +73,12 @@ function packChange(element) {
 
 // Update the header text
 const headerElement = document.querySelector('.detail-header');
-headerElement.innerText = rollType + " Cinnamon Roll";
+headerElement.innerText = rollName + " Cinnamon Roll";
 
 // Update the image
 const detailImage = document.querySelector('#roll-detail-page');
-let rollImage = rolls[rollType].imageFile;
+let rollImage = rolls[rollName].imageFile;
 detailImage.src = '../assets/products/' + rollImage;
-
-// detail page updates
-const cart = new Set();
-const queryString = window.location.search;
 
 class Roll {
     constructor(rollType, rollGlazing, packSize, rollPrice) {
@@ -92,6 +102,10 @@ class Roll {
         return totalItemPrice;
     }
 }
+
+// add to cart button
+const addToCart = document.querySelector(".total-addToCart button");
+addToCart.addEventListener("click", addNewRoll());
 
 // creates new roll and adds it to cart set
 function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
@@ -181,14 +195,6 @@ function deleteRoll(roll) {
     saveToLocalStorage();
   }
 
-// roll prices
-let basePrice = rolls[rollType].basePrice;
-let totalPriceDetail = document.querySelector(".total.detail");
-let glazingPrice = 0;
-let packPrice = 1;
-let totalItemPrice;
-totalPriceDetail.innerHTML = "$" + basePrice;
-
 function saveToLocalStorage() {
     const rollArray = Array.from(cart);
     console.log(rollArray);
@@ -210,5 +216,5 @@ function retrieveFromLocalStorage() {
 
 // only retrieve if local storage has stuff in it
 if (localStorage.getItem('storedRolls') != null) {
-    retreiveFromLocalStorage();
+    retrieveFromLocalStorage();
 }
