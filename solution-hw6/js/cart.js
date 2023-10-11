@@ -204,8 +204,10 @@ function saveToLocalStorage() {
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
     const rollArray = JSON.parse(rollArrayString);
+    console.log("rollArray: " + rollArray);
+    console.log(new Array(...rollArray));
     for (const rollData of rollArray) {
-      const roll = addNewRoll(noteData.noteImageURL, noteData.noteTitle, noteData.noteBody);
+      const roll = addNewRoll(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
       createElement(roll);
     }
 }
@@ -214,3 +216,5 @@ function retrieveFromLocalStorage() {
 if (localStorage.getItem('storedRolls') != null) {
     retrieveFromLocalStorage();
 }
+
+console.log("window.location.search: " + window.location.search)
