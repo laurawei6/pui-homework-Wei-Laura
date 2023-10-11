@@ -78,3 +78,34 @@ headerElement.innerText = rollType + " Cinnamon Roll";
 const detailImage = document.querySelector('#roll-detail-page');
 let rollImage = rolls[rollType].imageFile;
 detailImage.src = '../assets/products/' + rollImage;
+
+// what user selected
+// source for this line of code is from here: https://stackoverflow.com/questions/5913/getting-the-text-from-a-drop-down-box
+let rollGlazing = glazing.options[glazingDropdown.selectedIndex];
+let packSize = packs.options[packSizeDropdown.selectedIndex];
+
+// add to cart button
+const addToCart = document.querySelector(".total-addToCart button");
+addToCart.addEventListener("click", addNewRoll.bind(null, rollName, rollGlazing, packSize, rollPrice));
+
+// creates new roll and adds it to cart set
+function addNewRoll(rollType, rollGlazing, packSize, rollPrice, event) {
+    // Create a new roll object
+    const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
+  
+    // Add the roll object to roll set
+    cart.add(roll);
+    saveToLocalStorage();
+  
+    return roll;
+}
+
+function saveToLocalStorage() {
+    const rollArray = Array.from(cart);
+    console.log(rollArray);
+    
+    const rollArrayString = JSON.stringify(rollArray);
+    console.log(rollArrayString);
+  
+    localStorage.setItem('storedRolls', rollArrayString);
+}
