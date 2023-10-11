@@ -59,12 +59,12 @@ const cartPrice = document.querySelector('.total-price.cart');
 let price = 0;
 
 // creating new rolls
-function createElement(newRoll) {
+function createElement(roll) {
     // make a clone of the roll template
     const template = document.querySelector('#product-choices-total-template');
     const clone = template.content.cloneNode(true);
     
-    newRoll.element = clone.querySelector('.product-choices-total');
+    roll.element = clone.querySelector('.product-choices-total');
 
     // options
     const rollImage = clone.querySelector('#product-cart-img');
@@ -73,53 +73,50 @@ function createElement(newRoll) {
     const rollPackSize = clone.querySelector('.product-offering-pack-size.cart');
     const rollPrice = clone.querySelector('.product-offering-price.cart');
     
-    rollImage.src = "../assets/products/" + newRoll.type.toLowerCase() + "-cinnamon-roll.jpg";
-    rollName.innerHTML = newRoll.type + " Cinnamon Roll";
-    rollGlazing.innerHTML = newRoll.glazing;
-    rollPackSize.innerHTML = "Pack size: " + newRoll.size;
-    rollPrice.innerHTML = "$" + newRoll.totalPrice();
+    rollImage.src = "../assets/products/" + roll.type.toLowerCase() + "-cinnamon-roll.jpg";
+    rollName.innerHTML = roll.type + " Cinnamon Roll";
+    rollGlazing.innerHTML = roll.glazing;
+    rollPackSize.innerHTML = "Pack size: " + roll.size;
+    rollPrice.innerHTML = "$" + roll.totalPrice();
 
     shoppingCart.appendChild(clone);
     
     // add the roll clone to the DOM
     const cartList = document.querySelector('#cart-overview');
-    cartList.appendChild(newRoll.element);
+    cartList.appendChild(roll.element);
 
     // take price of bun and add to the cart price
-    price += parseFloat(newRoll.totalPrice());
-    updateCartPrice(newRoll);
+    price += parseFloat(roll.totalPrice());
+    updateCartPrice(roll);
 
-    const removeBtn = newRoll.element.querySelector('.remove');
+    const removeBtn = roll.element.querySelector('.remove');
     removeBtn.addEventListener('click', () => {
-      deleteRoll(newRoll);
+      deleteRoll(roll);
     });
   }
 
-for (const newRoll of cart) {
-    // const newRollElement = createElement(newRoll);
-    createElement(newRoll);
+for (const roll of cart) {
+    createElement(roll);
 }
 
-function updateCartPrice(newRoll) {
+function updateCartPrice(roll) {
     cartPrice.innerHTML = "$" + String(Math.abs(price).toFixed(2));
 }
 
-function deleteRoll(newRoll) {
+function deleteRoll(roll) {
     // change price based on 
-    price -= newRoll.totalPrice();
+    price -= roll.totalPrice();
     console.log(price);
-    updateCartPrice(newRoll);
+    updateCartPrice(roll);
     
     // remove the roll DOM object from the UI
-    newRoll.element.remove();
+    roll.element.remove();
     // remove the actual Notecard object from our set of notecards
-    cart.delete(newRoll);
+    cart.delete(roll);
 
     // update local storage
     saveToLocalStorage();
   }
-
-// add
 
 function saveToLocalStorage() {
     const rollArray = Array.from(cart);
