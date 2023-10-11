@@ -1,7 +1,3 @@
-// detail page updates
-const cart = new Set();
-const queryString = window.location.search;
-
 // glazing options for rolls
 const glazing = {
     options: ["Keep original", "Sugar milk", "Vanilla milk", "Double chocolate"],
@@ -17,6 +13,10 @@ const packSize = {
 // dropdown options
 let glazingDropdown = document.querySelector("#glazing");
 let packSizeDropdown = document.querySelector("#pack-size");
+
+// detail page updates
+const cart = new Set();
+const queryString = window.location.search;
 
 class Roll {
     constructor(rollType, rollGlazing, packSize, rollPrice) {
@@ -41,15 +41,16 @@ class Roll {
     }
 }
 
-const originalRoll = new Roll("Original", glazing.options[1], packSize.options[0], 2.49);
-const walnutRoll = new Roll("Walnut", glazing.options[2], packSize.options[3], 3.49);
-const raisinRoll = new Roll("Raisin", glazing.options[1], packSize.options[1], 2.99);
-const appleRoll = new Roll("Apple", glazing.options[0], packSize.options[1], 3.49);
-
-cart.add(originalRoll);
-cart.add(walnutRoll);
-cart.add(raisinRoll);
-cart.add(appleRoll);
+// creates new roll and adds it to cart set
+function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
+    // Create a new roll object
+    const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
+  
+    // Add the roll object to roll set
+    cart.add(roll);
+  
+    return roll;
+  }
 
 const shoppingCart = document.querySelector("#cart-overview");
 
@@ -113,4 +114,33 @@ function deleteRoll(newRoll) {
     newRoll.element.remove();
     // remove the actual Notecard object from our set of notecards
     cart.delete(newRoll);
+
+    // update local storage
+    saveToLocalStorage();
   }
+
+// add
+
+function saveToLocalStorage() {
+    const rollArray = Array.from(cart);
+    console.log(rollArray);
+    
+    const rollArrayString = JSON.stringify(rollArray);
+    console.log(rollArrayString);
+  
+    localStorage.setItem('storedRolls', rollArrayString);
+  }
+
+function retrieveFromLocalStorage() {
+    const rollArrayString = localStorage.getItem('storedRolls');
+    const rollArray = JSON.parse(rollArrayString);
+    for (const rollData of rollArray) {
+      const roll = addNewRoll(noteData.noteImageURL, noteData.noteTitle, noteData.noteBody);
+      createElement(roll);
+    }
+  }
+
+// only retrieve if local storage has stuff in it
+if (localStorage.getItem('storedRolls') != null) {
+    retreiveFromLocalStorage();
+}
