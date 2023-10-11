@@ -168,16 +168,6 @@ function createElement(roll) {
     });
 }
 
-//   const originalRoll = new Roll("Original", glazing.options[1], packSize.options[0], 2.49);
-//   const walnutRoll = new Roll("Walnut", glazing.options[2], packSize.options[3], 3.49);
-//   const raisinRoll = new Roll("Raisin", glazing.options[1], packSize.options[1], 2.99);
-//   const appleRoll = new Roll("Apple", glazing.options[0], packSize.options[1], 3.49);
-  
-//   cart.add(originalRoll);
-//   cart.add(walnutRoll);
-//   cart.add(raisinRoll);
-//   cart.add(appleRoll);
-
 for (const roll of cart) {
     createElement(roll);
 }
