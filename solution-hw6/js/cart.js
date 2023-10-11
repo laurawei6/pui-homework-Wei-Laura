@@ -14,6 +14,20 @@ const packSize = {
 let glazingDropdown = document.querySelector("#glazing");
 let packSizeDropdown = document.querySelector("#pack-size");
 
+for (let i=0; i < glazing.options.length; i++){
+    let newOption = document.createElement("option");
+    newOption.setAttribute("value", glazing.priceAdaptation[i]);
+    newOption.textContent = glazing.options[i];
+    glazingDropdown.appendChild(newOption);
+}
+
+for (let i=0; i < packSize.options.length; i++){
+    let newOption = document.createElement("option");
+    newOption.setAttribute("value", packSize.priceAdaptation[i]);
+    newOption.textContent = packSize.options[i];
+    packSizeDropdown.appendChild(newOption);
+}
+
 // detail page updates
 const cart = new Set();
 const queryString = window.location.search;
@@ -89,11 +103,22 @@ function createElement(roll) {
     price += parseFloat(roll.totalPrice());
     updateCartPrice(roll);
 
+    // remove button
     const removeBtn = roll.element.querySelector('.remove');
     removeBtn.addEventListener('click', () => {
       deleteRoll(roll);
     });
   }
+
+//   const originalRoll = new Roll("Original", glazing.options[1], packSize.options[0], 2.49);
+//   const walnutRoll = new Roll("Walnut", glazing.options[2], packSize.options[3], 3.49);
+//   const raisinRoll = new Roll("Raisin", glazing.options[1], packSize.options[1], 2.99);
+//   const appleRoll = new Roll("Apple", glazing.options[0], packSize.options[1], 3.49);
+  
+//   cart.add(originalRoll);
+//   cart.add(walnutRoll);
+//   cart.add(raisinRoll);
+//   cart.add(appleRoll);
 
 for (const roll of cart) {
     createElement(roll);
@@ -117,6 +142,14 @@ function deleteRoll(roll) {
     // update local storage
     saveToLocalStorage();
   }
+
+// roll prices
+let basePrice = rolls[rollType].basePrice;
+let totalPriceDetail = document.querySelector(".total.detail");
+let glazingPrice = 0;
+let packPrice = 1;
+let totalItemPrice;
+totalPriceDetail.innerHTML = "$" + basePrice;
 
 function saveToLocalStorage() {
     const rollArray = Array.from(cart);
