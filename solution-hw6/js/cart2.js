@@ -1,3 +1,17 @@
+const cart = new Set();
+
+// creates new roll and adds it to cart set
+function addNewRoll(rollType, rollGlazing, packSize, rollPrice, event) {
+    // Create a new roll object
+    const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
+  
+    // Add the roll object to roll set
+    cart.add(roll);
+    saveToLocalStorage();
+  
+    return roll;
+}
+
 // creating new rolls
 function createElement(roll) {
     // make a clone of the roll template
@@ -57,4 +71,20 @@ function deleteRoll(roll) {
 
     // update local storage
     saveToLocalStorage();
+}
+
+function retrieveFromLocalStorage() {
+    const rollArrayString = localStorage.getItem('storedRolls');
+    const rollArray = JSON.parse(rollArrayString);
+    console.log("rollArray: " + rollArray);
+    console.log(new Array(...rollArray));
+    for (const rollData of rollArray) {
+      const roll = addNewRoll(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
+      createElement(roll);
+    }
+}
+
+// only retrieve if local storage has stuff in it
+if (localStorage.getItem('storedRolls') != null) {
+    retrieveFromLocalStorage();
 }
