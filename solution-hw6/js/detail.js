@@ -80,29 +80,6 @@ const detailImage = document.querySelector('#roll-detail-page');
 let rollImage = rolls[rollName].imageFile;
 detailImage.src = '../assets/products/' + rollImage;
 
-class Roll {
-    constructor(rollType, rollGlazing, packSize, rollPrice) {
-        this.type = rollType;
-        this.glazing = rollGlazing;
-        this.size = packSize;
-        this.basePrice = rollPrice;
-    }
-    
-    totalPrice() {
-        //basePrice
-        let basePrice = this.basePrice;
-        
-        let i = glazing.options.indexOf(this.glazing);
-        let glazingPrice = parseFloat(glazing.priceAdaptation[i]);
-
-        let j = packSize.options.indexOf(this.size);
-        let packPrice = parseFloat(packSize.priceAdaptation[j]);
-
-        let totalItemPrice = ((basePrice + glazingPrice) * packPrice).toFixed(2);
-        return totalItemPrice;
-    }
-}
-
 // what user selected
 // source for this line of code is from here: https://stackoverflow.com/questions/5913/getting-the-text-from-a-drop-down-box
 let rollGlazing = glazing.options[glazingDropdown.selectedIndex];
