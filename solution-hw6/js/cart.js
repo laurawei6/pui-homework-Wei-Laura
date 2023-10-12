@@ -110,10 +110,11 @@ let packSize = packs.options[packSizeDropdown.selectedIndex];
 
 // add to cart button
 const addToCart = document.querySelector(".total-addToCart button");
-addToCart.addEventListener("click", addNewRoll.bind(null, rollName, rollGlazing, packSize, rollPrice));
+addToCart.addEventListener("click", () => 
+    addNewRoll(rollName, rollGlazing, packSize, rollPrice));
 
 // creates new roll and adds it to cart set
-function addNewRoll(rollType, rollGlazing, packSize, rollPrice, event) {
+function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
     // Create a new roll object
     const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
   
@@ -216,5 +217,9 @@ function retrieveFromLocalStorage() {
 if (localStorage.getItem('storedRolls') != null) {
     retrieveFromLocalStorage();
 }
+
+
+console.log(localStorage.getItem('storedRolls'));
+console.log("script loaded");
 
 console.log("window.location.search: " + window.location.search)
