@@ -12,7 +12,6 @@ function createElement(roll) {
     
     roll.element = clone.querySelector('.product-choices-total');
 
-    // options
     const rollImage = clone.querySelector('#product-cart-img');
     const rollName = clone.querySelector('.product-offering-name.cart');
     const rollGlazing = clone.querySelector('.product-offering-glazing.cart');
@@ -47,19 +46,36 @@ function createElement(roll) {
 
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
+    console.log(rollArrayString)
     const rollArray = JSON.parse(rollArrayString);
-    if (rollArray.length === 1) {
-        const roll = createElement(rollArray.type, rollArray.glazing, rollArray.size, rollArray.basePrice);
-        console.log(roll);
+    console.log(rollArray)
+
+    for (const rollData of rollArray) {
+        console.log(rollData);
+        const rollInfo = Object.entries(rollData);
+        console.log(rollInfo);
+        console.log(typeof rollInfo);
+        // console.log(rollData);
+        const roll = createElement(rollInfo[0][1], rollInfo[1][1], rollInfo[2][1], rollInfo[3][1]);
+        console.log(rollInfo[0][1]);
+        console.log(rollInfo[1][1]);
+        console.log(rollInfo[2][1]);
+        console.log(rollInfo[3][1]);
         createElement(roll);
     }
-    else {
-        for (const rollData of rollArray) {
-            console.log(rollData);
-            const roll = createElement(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
-            createElement(roll);
-        }
-    }
+
+    // if (rollArray.length === 1) {
+    //     const roll = new Roll(rollArray[1], rollArray.glazing, rollArray.size, rollArray.basePrice);
+    //     console.log(roll);
+    //     createElement(roll);
+    // }
+    // else {
+    //     for (const rollData of rollArray) {
+    //         // console.log(rollData);
+    //         const roll = createElement(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
+    //         createElement(roll);
+    //     }
+    // }
     
 }
 
@@ -67,9 +83,3 @@ function retrieveFromLocalStorage() {
 if (localStorage.getItem('storedRolls') != null) {
     retrieveFromLocalStorage();
 }
-
-
-console.log(localStorage.getItem('storedRolls'));
-console.log("script loaded");
-
-console.log("window.location.search: " + window.location.search)
