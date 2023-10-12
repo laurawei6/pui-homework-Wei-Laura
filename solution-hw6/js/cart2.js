@@ -18,6 +18,9 @@ function createElement(roll) {
     const rollGlazing = clone.querySelector('.product-offering-glazing.cart');
     const rollPackSize = clone.querySelector('.product-offering-pack-size.cart');
     const rollPrice = clone.querySelector('.product-offering-price.cart');
+
+    console.log("roll: " + roll);
+    console.log("roll.type: " + roll.type);
     
     rollImage.src = "../assets/products/" + roll.type.toLowerCase() + "-cinnamon-roll.jpg";
     rollName.innerHTML = roll.type + " Cinnamon Roll";
@@ -45,12 +48,19 @@ function createElement(roll) {
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
     const rollArray = JSON.parse(rollArrayString);
-    console.log("rollArray: " + rollArray);
-    console.log(new Array(...rollArray));
-    for (const rollData of rollArray) {
-      const roll = createElement(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
-      createElement(roll);
+    if (rollArray.length === 1) {
+        const roll = createElement(rollArray.type, rollArray.glazing, rollArray.size, rollArray.basePrice);
+        console.log(roll);
+        createElement(roll);
     }
+    else {
+        for (const rollData of rollArray) {
+            console.log(rollData);
+            const roll = createElement(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
+            createElement(roll);
+        }
+    }
+    
 }
 
 // only retrieve if local storage has stuff in it
