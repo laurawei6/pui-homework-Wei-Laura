@@ -1,20 +1,7 @@
 // detail page updates
-const cart = [];
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get('roll');
-
-// glazing options for rolls
-const glazing = {
-    options: ["Keep original", "Sugar milk", "Vanilla milk", "Double chocolate"],
-    priceAdaptation: [0, 0, 0.5, 1.5],
-}
-
-// pack size options for rolls
-const packs = {
-    options: [1, 3, 6, 12],
-    priceAdaptation: [1, 3, 5, 10],
-}
 
 // detail page
 // dropdown options
@@ -125,10 +112,8 @@ function saveToLocalStorage(cart) {
 
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
-    console.log(rollArrayString);
-    console.log(typeof rollArrayString);
     const rollArray = JSON.parse(rollArrayString);
-    console.log(rollArray);
+    console.log(typeof rollArray);
 }
 
 // only retrieve if local storage has stuff in it
