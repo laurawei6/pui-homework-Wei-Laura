@@ -79,13 +79,11 @@ function addNewRoll() {
     // source for this line of code is from here: https://stackoverflow.com/questions/5913/getting-the-text-from-a-drop-down-box
     let rollGlazing = glazing.options[glazingDropdown.selectedIndex];
     let packSize = packs.options[packSizeDropdown.selectedIndex];
-    console.log(glazing.options[glazingDropdown.selectedIndex]);  
 
     // Create a new roll object
     const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
   
     // Add the roll object to roll set
-    console.log(cart);
     cart.push(roll);
     console.log(cart);
     saveToLocalStorage(cart);
@@ -101,9 +99,6 @@ function saveToLocalStorage(cart) {
         localStorage.setItem('storedRolls', rollArrayString);
     } else {
         let storedRolls = JSON.parse(localStorage.getItem('storedRolls'));
-        console.log(storedRolls);
-        console.log("type of storedRolls: " + typeof storedRolls);
-
         storedRolls.push(cart[cart.length - 1]);
         let storedRollsString = JSON.stringify(storedRolls);
         localStorage.setItem('storedRolls', storedRollsString);
@@ -113,7 +108,6 @@ function saveToLocalStorage(cart) {
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
     const rollArray = JSON.parse(rollArrayString);
-    console.log(typeof rollArray);
 }
 
 // only retrieve if local storage has stuff in it
