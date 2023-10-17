@@ -59,11 +59,9 @@ function deleteRoll(roll) {
     roll.element.remove();
 
     // set local storage to cart
-    if (cart !== null) {
+    if (cart.length !== 0) {
         localStorage.setItem("storedRolls", JSON.stringify(cart));
-        console.log(cart);
     } else {
-        console.log(cart);
         localStorage.clear();
     }
 }
