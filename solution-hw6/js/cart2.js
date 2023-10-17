@@ -52,7 +52,6 @@ function deleteRoll(roll) {
     
     // change price based on what was removed
     price -= roll.totalPrice();
-    console.log(price);
     updateCartPrice(roll);
     
     // remove the roll DOM object from the UI
@@ -60,9 +59,12 @@ function deleteRoll(roll) {
 
     // set local storage to cart
     if (cart.length !== 0) {
+        console.log(cart);
         localStorage.setItem("storedRolls", JSON.stringify(cart));
     } else {
         localStorage.clear();
+        console.log(cart);
+        cart = [];
     }
 }
 
