@@ -17,9 +17,6 @@ function createElement(roll) {
     const rollGlazing = clone.querySelector('.product-offering-glazing.cart');
     const rollPackSize = clone.querySelector('.product-offering-pack-size.cart');
     const rollPrice = clone.querySelector('.product-offering-price.cart');
-
-    console.log("roll: " + roll);
-    console.log("roll.type: " + roll.type);
     
     rollImage.src = "../assets/products/" + roll.type.toLowerCase() + "-cinnamon-roll.jpg";
     rollName.innerHTML = roll.type + " Cinnamon Roll";
@@ -44,39 +41,41 @@ function createElement(roll) {
     });
 }
 
+function updateCartPrice(roll) {
+    cartPrice.innerHTML = "$" + String(Math.abs(price).toFixed(2));
+}
+
+function deleteRoll(roll) {
+    // remove the actual roll object from our cart
+    let whereIsRoll = cart.find(element => roll.type === roll.type); 
+    let x = cart.splice(cart.indexOf(whereIsRoll), cart.indexOf(whereIsRoll)+1);
+    
+    // change price based on what was removed
+    price -= roll.totalPrice();
+    console.log(price);
+    updateCartPrice(roll);
+    
+    // remove the roll DOM object from the UI
+    roll.element.remove();
+
+    // set local storage to cart
+    if (cart !== null) {
+        localStorage.setItem("storedRolls", JSON.stringify(cart));
+        console.log(cart);
+    } else {
+        console.log(cart);
+        localStorage.clear();
+    }
+}
+
 function retrieveFromLocalStorage() {
     const rollArrayString = localStorage.getItem('storedRolls');
-    console.log(rollArrayString)
-    const rollArray = JSON.parse(rollArrayString);
-    console.log(rollArray)
+    cart = JSON.parse(rollArrayString);
+    console.log(cart);
 
-    for (const rollData of rollArray) {
-        console.log(rollData);
-        const rollInfo = Object.entries(rollData);
-        console.log(rollInfo);
-        console.log(typeof rollInfo);
-        // console.log(rollData);
-        const roll = createElement(rollInfo[0][1], rollInfo[1][1], rollInfo[2][1], rollInfo[3][1]);
-        console.log(rollInfo[0][1]);
-        console.log(rollInfo[1][1]);
-        console.log(rollInfo[2][1]);
-        console.log(rollInfo[3][1]);
-        createElement(roll);
+    for (let roll of cart){
+        createElement(roll = new Roll(roll.type, roll.glazing, roll.size, roll.basePrice));
     }
-
-    // if (rollArray.length === 1) {
-    //     const roll = new Roll(rollArray[1], rollArray.glazing, rollArray.size, rollArray.basePrice);
-    //     console.log(roll);
-    //     createElement(roll);
-    // }
-    // else {
-    //     for (const rollData of rollArray) {
-    //         // console.log(rollData);
-    //         const roll = createElement(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
-    //         createElement(roll);
-    //     }
-    // }
-    
 }
 
 // only retrieve if local storage has stuff in it
