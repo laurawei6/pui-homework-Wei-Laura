@@ -129,23 +129,6 @@ function retrieveFromLocalStorage() {
     console.log(typeof rollArrayString);
     const rollArray = JSON.parse(rollArrayString);
     console.log(rollArray);
-
-//     let cart = [];
-
-//     for (const rollData of rollArray) {
-//         if (cart !== null){
-//             cart.push(rollData);
-//             return cart;
-
-//         } else {
-//             return cart;
-//         }
-
-        
-        
-//         // const rollArrayString = localStorage.getItem('storedRoll');
-//         // const notecardArray = JSON.parse(notecardArrayString);
-//   }
 }
 
 // only retrieve if local storage has stuff in it
