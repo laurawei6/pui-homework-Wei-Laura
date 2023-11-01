@@ -1,0 +1,158 @@
+/*fonts*/
+@font-face {
+  font-family: Humming;
+  src: url(fonts/Humming.otf);
+}
+@font-face {
+  font-family: CalvertMT;
+  src: url(fonts/CalvertMT.ttf);
+}
+* {
+  font-family: Humming, sans-serif;
+}
+
+/*colors*/
+/*variables*/
+/*orange*/
+/*blue*/
+/*green*/
+/*brown*/
+/*site title*/
+/*flex portion*/
+.flex {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+/*right side*/
+.right-side {
+  flex: 3;
+  order: 2;
+  height: 100%;
+  background-image: url(images/Sunny-BG.png);
+  background-size: 110%;
+  background-position: right top;
+  background-color: lightgreen;
+  /*header*/
+}
+.right-side header {
+  display: flex;
+  align-items: center;
+  padding-left: 4.43%;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+}
+.right-side header .content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.right-side header .content #site-title {
+  font-family: CalvertMT;
+  font-size: 24;
+  color: #4C2A20;
+  display: inline;
+}
+
+body {
+  margin: 0;
+}
+
+/*left-column navigation*/
+nav {
+  height: 100%;
+  box-sizing: border-box;
+  flex: 1;
+  order: 1;
+  align-items: stretch;
+  background-color: #FCF3EC;
+  padding-top: 130px;
+}
+nav .option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 19 54;
+  margin: 0;
+  box-sizing: border-box;
+}
+nav .option h2 {
+  font-size: 16;
+  color: #5E5E5E;
+}
+
+/*bottom bar*/
+.bottom-bar {
+  height: 100px !important;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  background-color: #EDAB89;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*play/pause/volume*/
+  /*share*/
+}
+.bottom-bar #btm-song-info {
+  display: flex;
+  gap: 40px;
+  width: fit-content;
+  flex-basis: min-content;
+  white-space: nowrap;
+}
+.bottom-bar #btm-song-info .btm-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.bottom-bar #btm-song-info .btm-info h2, .bottom-bar #btm-song-info .btm-info h3 {
+  margin: 0;
+  padding: 0;
+}
+.bottom-bar #btm-song-info .btm-info h2 {
+  font-size: 14;
+  color: white;
+  -webkit-text-stroke: 0.3px #FCF3EC;
+}
+.bottom-bar #btm-song-info .btm-info h3 {
+  font-size: 12;
+  color: #FCF3EC;
+}
+.bottom-bar .play-pause-volume {
+  margin: 0 auto;
+  z-index: 9999;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.bottom-bar .play-pause-volume .play-pause #pause {
+  display: none;
+}
+.bottom-bar .play-pause-volume .volume {
+  width: 80px;
+  height: auto;
+}
+.bottom-bar .play-pause-volume .volume :not(#v-off) {
+  display: none;
+}
+.bottom-bar .share {
+  display: flex;
+  gap: 0px;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
+.bottom-bar .share h3 {
+  font-size: 12;
+  color: #FCF3EC;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
