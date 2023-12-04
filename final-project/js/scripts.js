@@ -1,6 +1,9 @@
+
+
+// left side info
 // home information
-const home = document.getElementById("home");
-const homeIcon = document.querySelector("#home img");
+// const home = document.getElementById("home");
+// const homeIcon = document.querySelector("#home img");
 
 // credits information
 

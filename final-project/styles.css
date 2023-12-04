@@ -62,12 +62,12 @@ a {
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
 }
-.right-side header .content {
+.right-side header .title {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.right-side header .content #site-title {
+.right-side header .title #site-title {
   font-family: CalvertMT;
   font-size: 24;
   color: #4C2A20;
