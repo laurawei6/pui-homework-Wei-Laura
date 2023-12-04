@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Crossing - Live Music</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+
+<body>
+    <section class="flex">
+        <!--right side-->
+        <section class="right-side">
+            
+            <!--header-->
+            <header>
+                <div class="content">
+                    <h1 id="site-title">Animal Crossing: New Horizons - Live Music for You</h1>
+                    <img src="icons/Music Playing.svg" alt="Spinning Record" width="50" height="50">
+                </div>
+            </header>
+        </section> 
+    
+        <!-- left column -->
+        <nav>
+            <ul id="navigation" style="list-style-type: none; margin: 0; padding: 0;">
+                <li id="home" onclick="clickedHome()">
+                    <a href="home.html">
+                        <div class="option home selected">
+                            <!--filled--> <img src="icons/Left Banner/Home - Filled.svg" class="left-column filled active">
+                            <!-- outlined <img src="icons/Left Banner/Home - Outlined.svg"> -->
+                        <h2 class="home">Home</h2>
+                        </div>
+                    </a>
+                </li>
+                <li id="location" onclick="clickedLocation()">
+                    <a href="location.html">
+                        <div class="option location">
+                            <!--filled--> <img src="icons/Left Banner/Location - Filled.svg" class="left-column filled">
+                            <!--outlined--> <img src="icons/Left Banner/Location - Unselected.svg" class="left-column outlined">
+                            <h2 class="location">Location</h2>
+                        </div>
+                    </a>
+                </li>
+                <li id="characters" onclick="clickedCharacters()">
+                    <a href="characters.html">
+                        <div class="option characters">
+                            <!--filled--> <img src="icons/Left Banner/Characters - Filled.svg" class="left-column filled">
+                            <!--outlined--> <img src="icons/Left Banner/Characters - Outlined.svg" class="left-column outlined">
+                            
+                            <h2 class="characters">Characters</h2>
+                        </div>
+                    </a>
+                </li>
+                <li id="themes" onclick="clickedThemes()">
+                    <a href="themes.html">
+                        <div class="option themes">
+                            <!--filled--> <img src="icons/Left Banner/Themes - Filled.svg" class="left-column filled">
+                            <!--outlined--> <img src="icons/Left Banner/Themes - Outlined.svg" class="left-column outlined">
+                            
+                            <h2 class="themes">Themes</h2>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!--bottom bar-->
+    <section class="bottom-bar">
+        <div id="btm-song-info">
+            <img src="images/Song Thumbnail.png" alt="Animal Crossing OST Album Cover" width="100" height="auto">
+            <div class="btm-info">
+                <h2>Sunny, 7AM</h2>
+                <h3 class="btm-composer-info">Kazumi Totaka</h3>
+            </div>
+        </div>
+        <div class="play-pause-volume">
+            <div class="play-pause">
+                <img src="icons/Bottom Bar/Play.svg" alt="Play Music" width="50" height="auto" id="play">
+                <img src="icons/Bottom Bar/Pause.svg" alt="Pause Music" width="50" height="auto" id="pause"> 
+            </div>
+            <div class="volume">
+                <img src="icons/Bottom Bar/Volume/Volume Off.svg" alt="volume off" width="80" height="auto" id="v-off">
+                <img src="icons/Bottom Bar/Volume/Low Volume.svg" alt="low volume" width="80" height="auto" id="low-v">
+                <img src="icons/Bottom Bar/Volume/High Volume.svg" alt="high volume" width="80" height="auto" id="high-v">
+                <img src="icons/Bottom Bar/Volume/Mute.svg" alt="mute" width="80" height="auto" id="mute">
+            </div>
+        </div>
+        <div class="share">
+            <img src="icons/Bottom Bar/Share.svg" alt="Share" width="35" height="auto" id="share">
+            <h3 class="share-text">Share</h3>
+        </div>
+    </section>
+
+</body>
+</html>

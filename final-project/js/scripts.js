@@ -7,10 +7,25 @@ const homeIcon = document.querySelector("#home img");
 
 // themes information
 
-
-
 // selected navigation item
+const selectedOrNo = document.querySelectorAll("ul div");
+for (let navDiv of selectedOrNo){
+    console.log(navDiv);
+    let imgInQuestion = navDiv.querySelector("ul div img");
+    let navHeader = navDiv.querySelector("ul h2");
+    if (navDiv.classList.contains('selected')){
+        imgInQuestion.src = '../Icons/Left Banner/' + navHeader + " - Filled.svg";
+    }
+    else {
+        imgInQuestion.src = '../Icons/Left Banner/' + navHeader + " - Outlined.svg";
+    }
+}
 
+// icons/Left Banner/Home - Filled.svg
+// const selectedImg = document.querySelector(".selected img");
+// console.log(selectedImg);
+// selectedImg.src = ''
+// detailImage.src = '../assets/products/' + rollImage
 
 
 // function clickedHome() {
