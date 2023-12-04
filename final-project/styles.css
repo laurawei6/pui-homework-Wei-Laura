@@ -80,6 +80,24 @@ body {
   margin: 0;
 }
 
+/* right side pages */
+.right-side div {
+  display: flex;
+  justify-content: center;
+}
+
+div.location-page {
+  background-color:blue;
+}
+
+div.themes-page {
+  background-color: blue;
+}
+
+h3 {
+
+}
+
 /*left-column navigation*/
 nav {
   height: 100%;
