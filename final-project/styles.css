@@ -53,8 +53,8 @@ a {
   background-size: 110%;
   background-position: right top;
   background-color: lightgreen;
-  /*header*/
 }
+
 .right-side header {
   display: flex;
   align-items: center;
@@ -62,14 +62,16 @@ a {
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
 }
+
 .right-side header .title {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+
 .right-side header .title #site-title {
   font-family: CalvertMT;
-  font-size: 24;
+  font-size: 20;
   color: #4C2A20;
   display: inline;
 }
@@ -98,7 +100,7 @@ nav .option {
   box-sizing: border-box;
 }
 nav .option h2 {
-  font-size: 16;
+  font-size: 14;
   color: #5E5E5E;
 }
 
