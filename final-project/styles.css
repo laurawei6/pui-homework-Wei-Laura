@@ -11,6 +11,14 @@
   font-family: Humming, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* selected nav option */
+.selected {
+  background-color: #FFFFFF;
+}
 
 /*colors*/
 /*variables*/

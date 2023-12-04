@@ -1,14 +1,30 @@
-function clickedHome() {
-    var home = document.getElementById("home");
-    home.style.background="#FFFFFF"
-}
+// home information
+const home = document.getElementById("home");
+const homeIcon = document.querySelector("#home img");
 
-function clickedCredits() {
-    var songCreds = document.getElementById("song-credits");
-    songCreds.style.background="#FFFFFF"
-}
+// credits information
 
-function clickedThemes() {
-    var themes = document.getElementById("themes");
-    themes.style.background="#FFFFFF"
-}
+
+// themes information
+
+
+
+// selected navigation item
+
+
+
+// function clickedHome() {
+//     const home = document.getElementById("home");
+//     const homeIcon = document.querySelector("#home img");
+//     console.log(homeIcon);
+// }
+
+// function clickedCredits() {
+//     const songCreds = document.getElementById("song-credits");
+//     songCreds.style.background="#FFFFFF"
+// }
+
+// function clickedThemes() {
+//     const themes = document.getElementById("themes");
+//     themes.style.background="#FFFFFF"
+// }
