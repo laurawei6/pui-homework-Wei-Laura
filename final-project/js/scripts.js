@@ -10,9 +10,8 @@ const homeIcon = document.querySelector("#home img");
 // selected navigation item
 const selectedOrNo = document.querySelectorAll("ul div");
 for (let navDiv of selectedOrNo){
-    console.log(navDiv);
     let imgInQuestion = navDiv.querySelector("ul div img");
-    let navHeader = navDiv.querySelector("ul h2");
+    let navHeader = navDiv.querySelector("ul h2").textContent;
     if (navDiv.classList.contains('selected')){
         imgInQuestion.src = '../Icons/Left Banner/' + navHeader + " - Filled.svg";
     }

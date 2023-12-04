@@ -20,6 +20,16 @@ a {
   background-color: #FFFFFF;
 }
 
+/* header */
+@keyframes spinningRecord {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.title img {
+  animation: 4s infinite linear spinningRecord;
+}
+
 /*colors*/
 /*variables*/
 /*orange*/
