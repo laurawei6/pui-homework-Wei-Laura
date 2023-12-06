@@ -25,15 +25,16 @@
             
             <div class="location-page">
                 <h3 class="location">Location:</h3>
-                <form onsubmit="determineWeather()">
+                <form onsubmit="determineWeather();return false">
                     <input type="radio" id="Pittsburgh" name="City" value="Pittsburgh">
                     <label for="Pittsburgh">Pittsburgh</label><br>
                     <input type="radio" id="Tokyo" name="City" value="Tokyo">
                     <label for="Tokyo">Tokyo</label><br>
+                    <p>
+                        <button id="confirm">Confirm</button>
+                    </p>
                 </form>
-                <p>
-                    <button id="confirm">Confirm</button>
-                </p>
+
             </div>
         </section> 
     
