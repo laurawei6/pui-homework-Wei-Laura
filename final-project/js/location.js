@@ -1,8 +1,6 @@
 const radioButtons = document.querySelectorAll('input[name="City"]');
 const confirmBtn = document.querySelector('#confirm');
 
-// confirmBtn.addEventListener("click", determineWeather);
-
 function determineWeather() {
     for (const radioButton of radioButtons) {
         let chosenCity;
