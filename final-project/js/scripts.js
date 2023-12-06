@@ -17,10 +17,10 @@ for (let navDiv of selectedOrNo){
     let navHeader = navDiv.querySelector("ul h2").textContent;
     console.log(navHeader);
     if (navDiv.classList.contains('selected')){
-        imgInQuestion.src = '../Icons/LeftBanner/' + navHeader + "-Filled.svg";
+        imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Filled.svg";
     }
     else {
-        imgInQuestion.src = '../Icons/LeftBanner/' + navHeader + "-Outlined.svg";
+        imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Outlined.svg";
     }
 }
 
