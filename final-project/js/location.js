@@ -25,7 +25,7 @@ class City{
 }
 
 const apiKey = 'b1dca7eb2a1128f628e81314d8f7ec88';
-const apiUrl = `api.openweathermap.org/data/2.5/forecast?lat=40.44&lon=79.99&appid=b1dca7eb2a1128f628e81314d8f7ec88&units=imperial`;
+const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=40.44&lon=79.99&appid=b1dca7eb2a1128f628e81314d8f7ec88&units=imperial`;
 
 const outputElement = document.getElementById('weatherInfo');
 
@@ -37,7 +37,7 @@ fetch(apiUrl)
     return response.json();
   })
   .then(data => {
-    const temperature = data.main.temp;
+    const temperature = data.list.main.temp;
     const description = data.weather[0].description;
     const location = data.name;
     outputElement.textContent = `Temperature in ${location}: ${temperature}°F. Weather: ${description}`;
