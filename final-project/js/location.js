@@ -1,19 +1,18 @@
-const radioButtons = document.querySelectorAll('input[name="city"]');
+const radioButtons = document.querySelectorAll('input[name="City"]');
+console.log(radioButtons);
 const confirmBtn = document.querySelector('#confirm');
 
 confirmBtn.addEventListener("click", determineWeather);
 
 function determineWeather() {
     for (const radioButton of radioButtons) {
-        console.log(radioButton.value);
+        let chosenCity;
         if (radioButton.checked) {
-            console.log("Pittsburgh");
+            chosenCity = radioButton.value;
+            console.log(radioButton.value);
             new City();
-        } else if (radioButton.checked) {
-            console.log("Tokyo");
         }
     }
-    
 }
 
 class City{
