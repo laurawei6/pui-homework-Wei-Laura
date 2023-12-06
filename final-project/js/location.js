@@ -1,2 +1,7 @@
 const cityDropdown = document.querySelector("form");
-console.log(cityDropdown);
+
+if (cityDropdown.value == "Pittsburgh") {
+    console.log("pittsburgh");
+} else if (cityDropdown.value == "Tokyo") {
+    console.log("Tokyo");
+}
