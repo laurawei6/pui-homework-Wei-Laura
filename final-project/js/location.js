@@ -1,12 +1,18 @@
 const radioButtons = document.querySelectorAll('input[name="city"]');
+const confirmBtn = document.querySelector('#confirm');
+
+confirmBtn.addEventListener("click", determineWeather);
 
 function determineWeather() {
-    if (cityDropdown.value == "Pittsburgh") {
-        console.log("Pittsburgh");
-        new City() 
-    } else if (cityDropdown.value == "Tokyo") {
-        console.log("Tokyo");
+    for (const radioButton of radioButtons) {
+        if (radioButtons.checked) {
+            console.log("Pittsburgh");
+            new City();
+        } else if (radioButtons.checked) {
+            console.log("Tokyo");
+        }
     }
+    
 }
 
 class City{
@@ -17,11 +23,11 @@ class City{
 }
 
 
-btn.addEventListener("click", () => {
-    let selectedSize;
-    for (const radioButton of radioButtons) {
-        if (radioButton.checked) {
-            selectedSize = radioButton.value;
-            break;
-        }
-    }
+// btn.addEventListener("click", () => {
+//     let selectedSize;
+//     for (const radioButton of radioButtons) {
+//         if (radioButton.checked) {
+//             selectedSize = radioButton.value;
+//             break;
+//         }
+//     }
