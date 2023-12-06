@@ -5,10 +5,11 @@ confirmBtn.addEventListener("click", determineWeather);
 
 function determineWeather() {
     for (const radioButton of radioButtons) {
-        if (radioButtons.checked) {
+        console.log(radioButton.value);
+        if (radioButton.checked) {
             console.log("Pittsburgh");
             new City();
-        } else if (radioButtons.checked) {
+        } else if (radioButton.checked) {
             console.log("Tokyo");
         }
     }
