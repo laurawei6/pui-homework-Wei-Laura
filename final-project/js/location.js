@@ -23,3 +23,25 @@ class City{
         this.long = long;
     }
 }
+
+const apiKey = 'b1dca7eb2a1128f628e81314d8f7ec88';
+const apiUrl = `api.openweathermap.org/data/2.5/forecast?lat=40.44&lon=79.99&appid=b1dca7eb2a1128f628e81314d8f7ec88&units=imperial`;
+
+const outputElement = document.getElementById('weatherInfo');
+
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    const temperature = data.main.temp;
+    const description = data.weather[0].description;
+    const location = data.name;
+    outputElement.textContent = `Temperature in ${location}: ${temperature}°F. Weather: ${description}`;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
