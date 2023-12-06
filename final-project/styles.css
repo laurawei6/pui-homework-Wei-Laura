@@ -1,11 +1,11 @@
 /*fonts*/
 @font-face {
   font-family: Humming;
-  src: url(fonts/Humming.otf);
+  src: url(Fonts/Humming.otf);
 }
 @font-face {
   font-family: CalvertMT;
-  src: url(fonts/CalvertMT.ttf);
+  src: url(Fonts/CalvertMT.ttf);
 }
 * {
   font-family: Humming, sans-serif;
