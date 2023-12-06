@@ -11,8 +11,9 @@ function determineWeather() {
     }
 }
 
-class City(lat, long){
+class City{
     constructor(lat, long){
-        
+        this.lat = lat;
+        this.long = long;
     }
 }
