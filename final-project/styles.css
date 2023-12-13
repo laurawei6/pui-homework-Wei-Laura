@@ -30,13 +30,6 @@ a {
   animation: 4s infinite linear spinningRecord;
 }
 
-/*colors*/
-/*variables*/
-/*orange*/
-/*blue*/
-/*green*/
-/*brown*/
-/*site title*/
 /*flex portion*/
 .flex {
   display: flex;
@@ -200,5 +193,3 @@ nav .option h2 {
   margin: 0;
   padding: 0;
 }
-
-/*# sourceMappingURL=styles.css.map */
