@@ -1,11 +1,8 @@
 
 // selected navigation item
 const navOption = document.querySelector("ul div");
-console.log(navOption);
 let imgInQuestion = navOption.querySelector("ul div img");
-console.log(imgInQuestion);
 let navHeader = navOption.querySelector("ul h2").textContent;
-console.log(navHeader);
 if (navOption.classList.contains('selected')) {
     imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Filled.svg";
 } else {
@@ -18,6 +15,7 @@ const confirmBtn = document.querySelector('#confirm');
 async function determineCity() {
   // Pittsburgh
   let chosenCity = new City(40.4406, 79.9959);
+  let timeString = Date.now().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
 
   for (const radioButton of radioButtons) {
       if (radioButton.checked) {
@@ -25,9 +23,11 @@ async function determineCity() {
           if (chosenCity === "Pittsburgh") {
               const pittsburgh = new City(40.4406, 79.9959);
               chosenCity = pittsburgh;
+              timeString = Date.now().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
           } else if (chosenCity === "Tokyo") {
               const tokyo = new City(35.6764, 139.6500);
               chosenCity = tokyo;
+              timeString = Date.now().toLocaleDateString(('en-US', { timeZone: 'Asia/Tokyo' }))
           }
       }
   }
@@ -35,7 +35,7 @@ async function determineCity() {
   const weatherDescription = await fetchWeather(chosenCity);
   const weather = translateWeather(weatherDescription);
 
-  console.log({ weatherDescription, weather });
+  console.log({ weatherDescription, weather, timeString});
 }
 
 
@@ -65,7 +65,8 @@ async function fetchWeather(city) {
     const firstItem = data.list[0];
     const description = firstItem.weather[0].description;
     const location = data.name;
-    // outputElement.textContent = `Weather: ${description}`;
+
+    console.log({firstItem})
     return description
   })
   .catch(error => {
