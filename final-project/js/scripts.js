@@ -1,16 +1,15 @@
 
 // selected navigation item
-const selectedOrNo = document.querySelectorAll("ul div");
-console.log(selectedOrNo);
-for (let navDiv of selectedOrNo){
-    let imgInQuestion = navDiv.querySelector("ul div img");
-    let navHeader = navDiv.querySelector("ul h2").textContent;
-    if (navDiv.classList.contains('selected')){
-        imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Filled.svg";
-    }
-    else {
-        imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Outlined.svg";
-    }
+const navOption = document.querySelector("ul div");
+console.log(navOption);
+let imgInQuestion = navOption.querySelector("ul div img");
+console.log(imgInQuestion);
+let navHeader = navOption.querySelector("ul h2").textContent;
+console.log(navHeader);
+if (navOption.classList.contains('selected')) {
+    imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Filled.svg";
+} else {
+    imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Outlined.svg";
 }
 
 const radioButtons = document.querySelectorAll('input[name="City"]');
