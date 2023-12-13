@@ -58,6 +58,8 @@ async function fetchWeather(city) {
     console.error('Error:', error);
   });
 
+  playMusic();
+
   return description;
 }
 
@@ -71,4 +73,16 @@ function translateWeather(description) {
   }
 
   return "clear"
+}
+
+function playMusic() {
+  const sound = new Howl({
+    src: ['https://dl.vgmdownloads.com/soundtracks/animal-crossing-new-horizons-original-soundtrack-limited-edition/rbmefcxsvg/1-01%20-%20Opening%20Theme.mp3'],
+    html5: true,
+    autoplay: true
+  });
+
+  console.log({sound})
+
+  sound.play()
 }

@@ -11,5 +11,3 @@ for (let navDiv of selectedOrNo){
         imgInQuestion.src = './Icons/LeftBanner/' + navHeader + "-Outlined.svg";
     }
 }
-
-import {Howl, Howler} from 'howler';
