@@ -86,15 +86,35 @@ body {
 }
 
 div.location-page {
-  background-color:blue;
+  background-color:rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 div.themes-page {
   background-color: blue;
 }
 
-h3 {
+.page-content {
+  padding: 250px;
+  background-image: url(Images/Sunny-BG.png);
+  background-size: 110%;
+  background-position: right top;
+  background-color: lightgreen;
+  color: #E29065;
+}
 
+button {
+  border-radius: 5px;
+  border-width: 3px;
+  padding: 12px 15px;
+  border-color: #E29065;
+  color: #E29065;
+  background-color: #FCF3EC;
+  border-style: solid;
 }
 
 /*left-column navigation*/
