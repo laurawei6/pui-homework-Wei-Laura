@@ -127,7 +127,6 @@ function playMusic(weather, time) {
 }
 
 const songDescription = document.querySelector(".btm-info>h2");
-console.log(songDescription);
 
 function changeSongDescription(weather, time){
   songDescription.textContent = weather + ", " + time;
