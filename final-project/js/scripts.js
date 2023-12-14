@@ -52,6 +52,7 @@ async function determineCity() {
   const time = translateTime(timeString);
 
   playMusic(weather, time);
+  changeSongDescription(weather, time);
 }
 
 
@@ -124,4 +125,11 @@ function playMusic(weather, time) {
   console.log({sound})
 
   sound.play()
+}
+
+const songDescription = document.querySelector(".btm-info>h2");
+console.log(songDescription);
+
+function changeSongDescription(weather, time){
+  songDescription.textContent = weather + ", " + time;
 }
