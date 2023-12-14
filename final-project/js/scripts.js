@@ -1,4 +1,3 @@
-
 const sfx = {
     'rain': {
         'morning': 'https://dl.vgmdownloads.com/soundtracks/animal-crossing-new-horizons-original-soundtrack-limited-edition/fuyestpluk/2-09%20-%208%20am%20%28Rain%29.mp3',
